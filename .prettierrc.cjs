@@ -8,5 +8,6 @@ module.exports = {
   // 一个tab代表几个空格数，默认为2
   tabWidth: 2,
   // 是否使用尾逗号，有三个可选值"<none|es5|all>"
-  trailingComma: 'none'
+  trailingComma: 'none',
+  endOfLine: 'auto'
 };
