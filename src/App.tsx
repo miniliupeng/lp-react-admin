@@ -1,13 +1,28 @@
-import { Button } from 'antd';
+import { HashRouter } from 'react-router-dom';
+import Router from './router';
+
+import zhCN from 'antd/locale/zh_CN';
+import 'dayjs/locale/zh-cn';
+import { ConfigProvider } from 'antd';
 
 function App() {
   return (
-    <>
-      <Button type="primary" className="w-100">
-        按钮
-      </Button>
-      <div className="a flex gap-2 translate-10"></div>
-    </>
+    <HashRouter>
+      <ConfigProvider
+        locale={zhCN}
+        theme={{
+          cssVar: {
+            key: 'admin-light'
+          },
+          hashed: false,
+          token: {
+            // colorPrimary: '#275FAE'
+          }
+        }}
+      >
+        <Router />
+      </ConfigProvider>
+    </HashRouter>
   );
 }
 

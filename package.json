@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "prepare": "husky",
+    "prepare": "husky install",
     "commit": "git add -A && czg && git push",
     "release": "standard-version"
   },
