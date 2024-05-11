@@ -1,0 +1,5 @@
+.shadow-sider {
+  --un-shadow: 2px 0 8px 0 rgb(29 35 41 / 5%);
+
+  box-shadow: var(--un-ring-offset-shadow), var(--un-ring-shadow), var(--un-shadow);
+}

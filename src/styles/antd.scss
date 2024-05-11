@@ -1,0 +1,21 @@
+.ant-app {
+  height: 100%;
+}
+
+.custom-modal {
+  .ant-modal-confirm-body-has-title > .anticon-exclamation-circle {
+    display: none;
+  }
+
+  .anticon + .ant-modal-confirm-paragraph {
+    max-width: unset;
+  }
+
+  .ant-modal-confirm-content {
+    padding-top: 16px;
+  }
+
+  .ant-modal-confirm-btns {
+    margin-top: 0;
+  }
+}

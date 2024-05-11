@@ -59,17 +59,17 @@ export default defineConfig({
   },
   theme: {
     colors: {
-      primary: 'var(--el-color-primary)',
-      primary_dark: 'var(--el-color-primary-light-5)',
-      info: 'var(--el-color-info)',
-      success: 'var(--el-color-success)',
-      warning: 'var(--el-color-warning)',
-      error: 'var(--el-color-error)',
-      fill: 'var(--el-fill-color-light)',
-      text: 'var(--el-text-color-primary)',
-      card: 'var(--el-bg-color-overlay)',
-      background: 'var(--el-bg-color)',
-      borderColor: 'var(--el-border-color-lighter)'
+      primary: 'var(--ant-color-primary)',
+      primary_dark: 'var(--ant-color-primary-light-5)',
+      info: 'var(--ant-color-info)',
+      success: 'var(--ant-color-success)',
+      warning: 'var(--ant-color-warning)',
+      error: 'var(--ant-color-error)',
+      fill: 'var(--ant-fill-color-light)',
+      text: 'var(--ant-text-color-primary)',
+      card: 'var(--ant-bg-color-overlay)',
+      background: 'var(--ant-bg-color)',
+      borderColor: 'var(--ant-border-color-lighter)'
     }
   }
 });

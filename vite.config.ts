@@ -25,7 +25,13 @@ export default defineConfig((configEnv: ConfigEnv) => {
       host: '0.0.0.0',
       port: 8080,
       open: true,
-      proxy: {}
+      proxy: {
+        '/ndr': {
+          target: 'https://10.1.100.113',
+          changeOrigin: true, //是否跨域
+          secure: false
+        }
+      }
     },
     css: {
       postcss: {

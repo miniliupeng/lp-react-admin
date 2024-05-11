@@ -1,5 +1,6 @@
 import { Navigate, RouteObject } from 'react-router-dom';
 import Login from '@/views/login';
+import WebsshTerminal from '@/views/webssh/terminal';
 
 // * 导入所有router
 const metaRouters = import.meta.glob('./modules/*.tsx', { eager: true }) as Record<
@@ -14,6 +15,7 @@ Object.keys(metaRouters).forEach((item) => {
     routerArray.push(...metaRouters[item][key]);
   });
 });
+console.log(routerArray);
 
 const routes: RouteObject[] = [
   {
@@ -23,6 +25,10 @@ const routes: RouteObject[] = [
   {
     path: '/login',
     element: <Login />
+  },
+  {
+    path: '/webssh/terminal',
+    element: <WebsshTerminal />
   },
   ...routerArray,
   {

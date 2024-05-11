@@ -1,9 +1,9 @@
 import logo from '@/assets/svg/react.svg';
 const Logo = () => {
   return (
-    <div className="h-64px flex-center">
+    <div className="flex-center w-200px">
       <img src={logo} alt="logo" />
-      <h2 className="text-24px font-bold ml-16px">lp Admin</h2>
+      <h2 className="text-16px font-bold ml-16px text-primary">流量威胁感知系统</h2>
     </div>
   );
 };
