@@ -1,6 +1,6 @@
 // 用户登录
 
-import { Bool, ReqPage, ResPageData } from '.';
+import { ResPageData } from '.';
 
 // 用户管理
 export interface User {
@@ -16,8 +16,6 @@ export interface User {
   [key: string]: any;
 }
 export type ResUserList = ResPageData<User>;
-
-export interface ReqUserList extends ReqPage {}
 
 export type ResRuleList = { id: number; role_name: string }[];
 

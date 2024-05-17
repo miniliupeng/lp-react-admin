@@ -9,11 +9,11 @@ export const ruleRoutes: RouteObject[] = [
     children: [
       {
         path: '/rule',
-        element: <Navigate to="/rule/ssl" />
+        element: <Navigate to="/rule/detection-protocol" />
       },
       {
-        path: '/rule/ssl',
-        element: LazyLoad(lazy(() => import('@/views/rule/ssl')))
+        path: '/rule/detection-protocol',
+        element: LazyLoad(lazy(() => import('@/views/rule/detection-protocol')))
       }
     ]
   }

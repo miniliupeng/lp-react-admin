@@ -1,4 +1,3 @@
-import { Bool } from '@/api/interface';
 import {
   addUserApi,
   deleteUserApi,
@@ -14,12 +13,11 @@ import {
   updateUserApi
 } from '@/api/modules/user';
 import { TIME_FORMAT } from '@/config/constants';
-import { BoolEnum, RoleNameEnum } from '@/enums/user';
+import { BoolEnum, RoleNameEnum } from '@/enums';
 import dayjs from 'dayjs';
 import { getBase64Str } from '@/utils/string';
 // 查询用户
-export const getAllUsersService = () =>
-  getAllUsersApi({ limit: 10, offset: 0 }).then((res) => res.data.data);
+export const getAllUsersService = () => getAllUsersApi().then((res) => res.data.data);
 
 export const addUserService = (data) => {
   return addUserApi({

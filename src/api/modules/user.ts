@@ -4,7 +4,6 @@ import request from '..';
 import {
   ReqConfiguration,
   ReqSessionId,
-  ReqUserList,
   ResPwdRule,
   ResRuleList,
   ResSafetyConfig,
@@ -14,11 +13,10 @@ import {
 
 // 1.用户管理查询
 export const usersQueryKey = '/ndr/api/user/get_all_users';
-export const getAllUsersApi = (data: ReqUserList) =>
+export const getAllUsersApi = () =>
   request<ResUserList>({
-    method: 'POST',
-    url: usersQueryKey,
-    data
+    method: 'GET',
+    url: usersQueryKey
   });
 // 2.新增用户
 export const addUserApi = (data: User) =>

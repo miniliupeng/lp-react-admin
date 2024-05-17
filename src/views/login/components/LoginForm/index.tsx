@@ -2,20 +2,22 @@ import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Form, Input, message } from 'antd';
-import Logo from '@/assets/img/navigation_logo_default.png';
+// import Logo from '@/assets/img/navigation_logo_default.png';
 
 import { HOME_URL } from '@/config';
 import { useUserStore } from '@/stores';
 import { getCaptchaService } from '@/services/login';
 import { useRequest } from 'ahooks';
 import { ResetPwdModal, ResetPwdModalRefProps } from '../ResetPwdModal';
+import { getLogoService, getSystemSettingsConfigService } from '@/services/system-settings';
 
 export const LoginForm = () => {
   const navigate = useNavigate();
   const login = useUserStore((state) => state.login);
 
   const { data, refresh } = useRequest(getCaptchaService);
-
+  const { data: config } = useRequest(getSystemSettingsConfigService);
+  const { data: logo } = useRequest(() => getLogoService({ image_type: 1 }));
   const [loading, setLoading] = useState(false);
   const [form] = Form.useForm();
   const ref = useRef() as React.MutableRefObject<ResetPwdModalRefProps>;
@@ -42,9 +44,9 @@ export const LoginForm = () => {
   };
 
   return (
-    <div className="w-412px h-452px pt-63px px-54px pb-86px border-2 border-solid border-primary rounded-15px m-auto  bg-white">
-      <img src={Logo} alt="" height={50} />
-      <h2 className="mt-30px mb-40px font-700">未来智安NDR</h2>
+    <div className="w-450px p-6 pb-0 rounded-15px m-auto  bg-white z-1">
+      <img src={logo} alt="" height={50} />
+      <h2 className="mt-30px mb-40px font-700 text-28px">{config?.sys_name}</h2>
       <Form
         name="login"
         className="login-form"
@@ -52,6 +54,7 @@ export const LoginForm = () => {
         onFinish={onFinish}
         autoComplete="off"
         form={form}
+        size="large"
       >
         <Form.Item name="user_name" rules={[{ required: true, message: '请输入用户名' }]}>
           <Input

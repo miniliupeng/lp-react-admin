@@ -5,3 +5,13 @@ export interface ResSystemSettingsConfig {
   product_name: string;
   sys_name: string;
 }
+export interface ResTimeConfig {
+  id: number;
+  sync_status: string;
+  sync_time_addr: string;
+  time_zone: string;
+  date_time: string;
+}
+export interface ResTimeStatusConfig {
+  status: 0 | 1 | 2;
+}

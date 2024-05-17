@@ -24,6 +24,3 @@ export interface ReqPage {
   limit: number;
   offset: number;
 }
-
-// 布尔值
-export type Bool = 0 | -1 | 1;

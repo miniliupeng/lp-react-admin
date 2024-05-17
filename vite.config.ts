@@ -27,7 +27,7 @@ export default defineConfig((configEnv: ConfigEnv) => {
       open: true,
       proxy: {
         '/ndr': {
-          target: 'https://10.1.100.113',
+          target: 'https://10.1.100.140',
           changeOrigin: true, //是否跨域
           secure: false
         }

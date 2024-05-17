@@ -15,7 +15,7 @@ Object.keys(metaRouters).forEach((item) => {
     routerArray.push(...metaRouters[item][key]);
   });
 });
-console.log(routerArray);
+// console.log(routerArray);
 
 const routes: RouteObject[] = [
   {

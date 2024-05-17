@@ -1,0 +1,9 @@
+.diagnose-output-form-item {
+  .ant-form-item-row {
+    flex-wrap: nowrap;
+
+    .ant-form-item-label {
+      flex-shrink: 0;
+    }
+  }
+}

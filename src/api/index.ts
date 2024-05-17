@@ -34,6 +34,7 @@ const handleNetworkError = (errStatus: number) => {
         break;
       case 401:
         errMessage = '未授权，请重新登录';
+        window.location.hash = LOGIN_URL;
         break;
       case 403:
         errMessage = '拒绝访问';

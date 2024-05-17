@@ -31,7 +31,7 @@ export const useAuthStore = create<AuthStore>()((set, get) => ({
       label: '检测规则',
       children: [
         {
-          key: '/rule/ssl',
+          key: '/rule/detection-protocol',
           label: '检测协议',
           icon: 'local:react'
         }
@@ -61,6 +61,11 @@ export const useAuthStore = create<AuthStore>()((set, get) => ({
         {
           key: '/settings/system-settings',
           label: '系统设置',
+          icon: 'antd:AppstoreOutlined'
+        },
+        {
+          key: '/settings/network',
+          label: '网络设置',
           icon: 'antd:AppstoreOutlined'
         }
       ]

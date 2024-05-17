@@ -19,7 +19,7 @@ export const NameConfig = () => {
         }}
         form={form}
         onFinish={onFinish}
-        labelCol={{ style: { width: 110 } }}
+        labelCol={{ style: { width: 150 } }}
         className="max-w-600px"
       >
         <Form.Item label="浏览器页签名称" name="browser_tab_name">
@@ -34,7 +34,7 @@ export const NameConfig = () => {
         <Form.Item
           wrapperCol={{
             style: {
-              marginLeft: 120
+              marginLeft: 150
             }
           }}
         >

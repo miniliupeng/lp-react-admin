@@ -4,7 +4,6 @@ import { useRequest } from 'ahooks';
 
 export const SecurityOperations = () => {
   const { data: qrcode } = useRequest(getSshCodeService);
-
   const onFinish = async (values) => {
     const session_id = await getSessionId(values);
     window.open(

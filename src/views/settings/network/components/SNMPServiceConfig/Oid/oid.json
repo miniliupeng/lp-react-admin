@@ -1,0 +1,362 @@
+[
+  {
+    "oid": ".1.3.6.1.2.1.25.2.2.0",
+    "description": "系统总内存大小",
+    "mark": "HOST-RESOURCES-MIB::hrMemorySize.0",
+    "method": "GET"
+  },
+  {
+    "oid": ".1.3.6.1.4.1.2021.9.1.3",
+    "description": "磁盘分区Label",
+    "mark": "UCD-SNMP-MIB::dskDevice",
+    "method": "WALK"
+  },
+  {
+    "oid": ".1.3.6.1.4.1.2021.9.1.13",
+    "description": "可用磁盘空间",
+    "mark": "UCD-SNMP-MIB::dskAvailLow",
+    "method": "WALK"
+  },
+  {
+    "oid": ".1.3.6.1.4.1.2021.9.1.2",
+    "description": "存储描述",
+    "mark": "UCD-SNMP-MIB::dskPath",
+    "method": "WALK"
+  },
+  {
+    "oid": ".1.3.6.1.4.1.2021.9.1.11",
+    "description": "存储总大小(KB)",
+    "mark": "UCD-SNMP-MIB::dskTotalLow",
+    "method": "WALK"
+  },
+  {
+    "oid": ".1.3.6.1.4.1.2021.9.1.15",
+    "description": "存储使用大小",
+    "mark": "UCD-SNMP-MIB::dskUsedLow",
+    "method": "WALK"
+  },
+  {
+    "oid": ".1.3.6.1.2.1.25.1.5.0",
+    "description": "系统（OS）登录用户数",
+    "mark": "HOST-RESOURCES-MIB::hrSystemNumUsers.0",
+    "method": "GET"
+  },
+  {
+    "oid": ".1.3.6.1.2.1.25.1.6.0",
+    "description": "系统启动进程数",
+    "mark": "HOST-RESOURCES-MIB::hrSystemProcesses.0",
+    "method": "GET"
+  },
+  {
+    "oid": ".1.3.6.1.2.1.25.1.1.0",
+    "description": "系统启动时间",
+    "mark": "HOST-RESOURCES-MIB::hrSystemUptime.0",
+    "method": "GET"
+  },
+  {
+    "oid": ".1.3.6.1.2.1.2.1.0",
+    "description": "网络接口数",
+    "mark": "IF-MIB::ifNumber.0",
+    "method": "GET"
+  },
+  {
+    "oid": ".1.3.6.1.2.1.2.2.1.7",
+    "description": "网络接口管理状态",
+    "mark": "IF-MIB::ifAdminStatus",
+    "method": "WALK"
+  },
+  {
+    "oid": ".1.3.6.1.2.1.2.2.1.2",
+    "description": "接口名称",
+    "mark": "IF-MIB::ifDescr",
+    "method": "WALK"
+  },
+  {
+    "oid": ".1.3.6.1.2.1.2.2.1.4",
+    "description": "接口MTU",
+    "mark": "IF-MIB::ifMtu",
+    "method": "WALK"
+  },
+  {
+    "oid": ".1.3.6.1.2.1.2.2.1.8",
+    "description": "接口状态",
+    "mark": "IF-MIB::ifOperStatus",
+    "method": "WALK"
+  },
+  {
+    "oid": ".1.3.6.1.2.1.2.2.1.10",
+    "description": "接口收到的字节数",
+    "mark": "IF-MIB::ifInOctets",
+    "method": "WALK"
+  },
+  {
+    "oid": ".1.3.6.1.2.1.2.2.1.11",
+    "description": "接口收到的数据包个数",
+    "mark": "IF-MIB::ifInUcastPkts",
+    "method": "WALK"
+  },
+  {
+    "oid": ".1.3.6.1.2.1.2.2.1.16",
+    "description": "接口发送的字节数",
+    "mark": "IF-MIB::ifOutOctets",
+    "method": "WALK"
+  },
+  {
+    "oid": ".1.3.6.1.2.1.2.2.1.17",
+    "description": "接口发送的数据包个数",
+    "mark": "IF-MIB::ifOutUcastPkts",
+    "method": "WALK"
+  },
+  {
+    "oid": ".1.3.6.1.2.1.2.2.1.6",
+    "description": "接口物理地址",
+    "mark": "IF-MIB::ifPhysAddress",
+    "method": "WALK"
+  },
+  {
+    "oid": ".1.3.6.1.2.1.2.2.1.5",
+    "description": "接口当前带宽",
+    "mark": "IF-MIB::ifSpeed",
+    "method": "WALK"
+  },
+  {
+    "oid": ".1.3.6.1.2.1.2.2.1.3",
+    "description": "接口类型",
+    "mark": "IF-MIB::ifType",
+    "method": "WALK"
+  },
+  {
+    "oid": ".1.3.6.1.2.1.4.20.1.1",
+    "description": "接口IP地址",
+    "mark": "IP-MIB::ipAdEntAddr",
+    "method": "WALK"
+  },
+  {
+    "oid": ".1.3.6.1.2.1.4.20.1.3",
+    "description": "接口子网掩码",
+    "mark": "IP-MIB::ipAdEntNetMask",
+    "method": "WALK"
+  },
+  {
+    "oid": ".1.3.6.1.2.1.1.4.0",
+    "description": "系统联系方式",
+    "mark": "SNMPv2-MIB::sysContact.0",
+    "method": "GET"
+  },
+  {
+    "oid": ".1.3.6.1.2.1.1.1.0",
+    "description": "系统描述",
+    "mark": "SNMPv2-MIB::sysDescr.0",
+    "method": "GET"
+  },
+  {
+    "oid": ".1.3.6.1.2.1.1.5.0",
+    "description": "系统名称",
+    "mark": "SNMPv2-MIB::sysName.0",
+    "method": "GET"
+  },
+  {
+    "oid": ".1.3.6.1.4.1.2021.13.15.1.1.2",
+    "description": "磁盘名称",
+    "mark": "UCD-DISKIO-MIB::diskIODevice",
+    "method": "WALK"
+  },
+  {
+    "oid": ".1.3.6.1.4.1.2021.13.15.1.1.9",
+    "description": "磁盘1分钟平均负载",
+    "mark": "UCD-DISKIO-MIB::diskIOLA1",
+    "method": "WALK"
+  },
+  {
+    "oid": ".1.3.6.1.4.1.2021.13.15.1.1.10",
+    "description": "磁盘5分钟平均负载",
+    "mark": "UCD-DISKIO-MIB::diskIOLA5",
+    "method": "WALK"
+  },
+  {
+    "oid": ".1.3.6.1.4.1.2021.13.15.1.1.11",
+    "description": "磁盘15分钟平均负载",
+    "mark": "UCD-DISKIO-MIB::diskIOLA15",
+    "method": "WALK"
+  },
+  {
+    "oid": ".1.3.6.1.4.1.2021.13.15.1.1.5",
+    "description": "磁盘读取的字节数（从启动开始）",
+    "mark": "UCD-DISKIO-MIB::diskIOReads",
+    "method": "WALK"
+  },
+  {
+    "oid": ".1.3.6.1.4.1.2021.13.15.1.1.6",
+    "description": "磁盘写入的字节数（从启动开始）",
+    "mark": "UCD-DISKIO-MIB::diskIOWrites",
+    "method": "WALK"
+  },
+  {
+    "oid": ".1.3.6.1.4.1.2021.4.6.0",
+    "description": "可用内存大小（KB）",
+    "mark": "UCD-SNMP-MIB::memAvailReal.0",
+    "method": "GET"
+  },
+  {
+    "oid": ".1.3.6.1.4.1.2021.4.4.0",
+    "description": "可用SWAP大小（KB）",
+    "mark": "UCD-SNMP-MIB::memAvailSwap.0",
+    "method": "GET"
+  },
+  {
+    "oid": ".1.3.6.1.4.1.2021.4.14.0",
+    "description": "内存Buffer大小（KB）",
+    "mark": "UCD-SNMP-MIB::memBuffer.0",
+    "method": "GET"
+  },
+  {
+    "oid": ".1.3.6.1.4.1.2021.4.15.0",
+    "description": "内存Cached大小（KB）",
+    "mark": "UCD-SNMP-MIB::memCached.0",
+    "method": "GET"
+  },
+  {
+    "oid": ".1.3.6.1.4.1.2021.4.11.0",
+    "description": "总空闲内存大小（包含SWAP）",
+    "mark": "UCD-SNMP-MIB::memTotalFree.0",
+    "method": "GET"
+  },
+  {
+    "oid": ".1.3.6.1.4.1.2021.4.5.0",
+    "description": "总内存大小",
+    "mark": "UCD-SNMP-MIB::memTotalReal.0",
+    "method": "GET"
+  },
+  {
+    "oid": ".1.3.6.1.4.1.2021.4.3.0",
+    "description": "总SWAP大小",
+    "mark": "UCD-SNMP-MIB::memTotalSwap.0",
+    "method": "GET"
+  },
+  {
+    "oid": ".1.3.6.1.4.1.2021.11.11.0",
+    "description": "空闲CPU百分比",
+    "mark": "UCD-SNMP-MIB::ssCpuIdle.0",
+    "method": "GET"
+  },
+  {
+    "oid": ".1.3.6.1.4.1.2021.11.9.0",
+    "description": "用户CPU百分比",
+    "mark": "UCD-SNMP-MIB::ssCpuUser.0",
+    "method": "GET"
+  },
+  {
+    "oid": ".1.3.6.1.4.1.2021.11.10.0",
+    "description": "系统CPU百分比",
+    "mark": "UCD-SNMP-MIB::ssCpuSystem.0",
+    "method": "GET"
+  },
+  {
+    "oid": ".1.3.6.1.4.1.2021.11.53.0",
+    "description": "原始CPU空闲时间",
+    "mark": "UCD-SNMP-MIB::ssCpuRawIdle.0",
+    "method": "GET"
+  },
+  {
+    "oid": ".1.3.6.1.4.1.2021.11.56.0",
+    "description": "原始系统中断使用时间",
+    "mark": "UCD-SNMP-MIB::ssCpuRawInterrupt.0",
+    "method": "GET"
+  },
+  {
+    "oid": ".1.3.6.1.4.1.2021.11.55.0",
+    "description": "原始系统内核使用时间",
+    "mark": "UCD-SNMP-MIB::ssCpuRawKernel.0",
+    "method": "GET"
+  },
+  {
+    "oid": ".1.3.6.1.4.1.2021.11.51.0",
+    "description": "原始系统nice使用时间",
+    "mark": "UCD-SNMP-MIB::ssCpuRawNice.0",
+    "method": "GET"
+  },
+  {
+    "oid": ".1.3.6.1.4.1.2021.11.61.0",
+    "description": "原始系统软中断使用时间",
+    "mark": "UCD-SNMP-MIB::ssCpuRawSoftIRQ.0",
+    "method": "GET"
+  },
+  {
+    "oid": ".1.3.6.1.4.1.2021.11.52.0",
+    "description": "原始系统CPU使用时间",
+    "mark": "UCD-SNMP-MIB::ssCpuRawSystem.0",
+    "method": "GET"
+  },
+  {
+    "oid": ".1.3.6.1.4.1.2021.11.50.0",
+    "description": "原始用户CPU使用时间",
+    "mark": "UCD-SNMP-MIB::ssCpuRawUser.0",
+    "method": "GET"
+  },
+  {
+    "oid": ".1.3.6.1.4.1.2021.11.54.0",
+    "description": "原始系统wait使用时间",
+    "mark": "UCD-SNMP-MIB::ssCpuRawWait.0",
+    "method": "GET"
+  },
+  {
+    "oid": ".1.3.6.1.4.1.2021.11.8.0",
+    "description": "系统上下文切换次数",
+    "mark": "UCD-SNMP-MIB::ssSysContext.0",
+    "method": "GET"
+  },
+  {
+    "oid": ".1.3.6.1.4.1.2021.11.7.0",
+    "description": "系统中断次数",
+    "mark": "UCD-SNMP-MIB::ssSysInterrupts.0",
+    "method": "GET"
+  },
+  {
+    "oid": ".1.3.6.1.4.1.2021.11.3.0",
+    "description": "内存换入磁盘的大小",
+    "mark": "UCD-SNMP-MIB::ssSwapIn.0",
+    "method": "GET"
+  },
+  {
+    "oid": ".1.3.6.1.4.1.2021.11.4.0",
+    "description": "内存换出磁盘的大小",
+    "mark": "UCD-SNMP-MIB::ssSwapOut.0",
+    "method": "GET"
+  },
+  {
+    "oid": ".1.3.6.1.4.1.2333.1.2",
+    "description": "传感器版本号",
+    "mark": "FLOWSENSOR-MIB::getVersion",
+    "method": "GET"
+  },
+  {
+    "oid": ".1.3.6.1.4.1.2333.1.3",
+    "description": "威胁情报是否开启",
+    "mark": "FLOWSENSOR-MIB::getIocStatus",
+    "method": "GET"
+  },
+  {
+    "oid": ".1.3.6.1.4.1.2333.1.4",
+    "description": "传感器WEB登录锁定状态",
+    "mark": "FLOWSENSOR-MIB::getLoginLock",
+    "method": "GET"
+  },
+  {
+    "oid": ".1.3.6.1.4.1.2333.1.5",
+    "description": "传感器数据库存储告警状态",
+    "mark": "FLOWSENSOR-MIB::getDbStorage",
+    "method": "GET"
+  },
+  {
+    "oid": ".1.3.6.1.2.1.31.1.1.1.10",
+    "description": "端口流量",
+    "mark": "IF-MIB::ifHCOutOctets",
+    "method": "WALK"
+  },
+  {
+    "oid": ".1.3.6.1.4.1.2021.13.16.2.1.3",
+    "description": "温度",
+    "mark": "LM-SENSORS-MIB::lmTempSensorsValue",
+    "method": "WALK"
+  }
+]

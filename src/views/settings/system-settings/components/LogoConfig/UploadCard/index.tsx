@@ -34,19 +34,31 @@ const whMap = {
 
 export const UploadCard = ({ title, image_type }) => {
   const [imageUrl, setImageUrl] = useState<string>();
-  useRequest(() => getLogoService({ image_type }), {
+  const { refresh } = useRequest(() => getLogoService({ image_type }), {
+    cacheKey: `cacheKey-logo-${image_type}`,
     onSuccess: setImageUrl
   });
   const { run } = useRequest(updateLogoService, {
     manual: true,
     onSuccess: ({ data }) => {
       message.success(data);
+      refresh();
+      // document.head.querySelectorAll('link').forEach((link) => {
+      //   if (link.rel === 'icon') {
+      //     link.parentNode?.removeChild(link);
+      //   }
+      // });
+      // const link = document.createElement('link');
+      // link.rel = 'icon';
+      // link.href = 'https://10.1.100.113/ndr/server_static/logo/sys_logo_default.png';
+      // document.head.append(link);
     }
   });
   const handleChange: UploadProps['onChange'] = (info) => {
     const { file } = info;
+
     if (beforeUpload(file)) {
-      getBase64(info.file.originFileObj as FileType, (url) => {
+      getBase64(file as FileType, (url) => {
         setImageUrl(url);
       });
     }
@@ -59,7 +71,7 @@ export const UploadCard = ({ title, image_type }) => {
           listType="picture-card"
           className="logo-config-upload"
           showUploadList={false}
-          beforeUpload={beforeUpload}
+          beforeUpload={() => false}
           onChange={handleChange}
         >
           {imageUrl ? (
