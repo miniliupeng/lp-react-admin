@@ -67,6 +67,16 @@ export const useAuthStore = create<AuthStore>()((set, get) => ({
           key: '/settings/network',
           label: '网络设置',
           icon: 'antd:AppstoreOutlined'
+        },
+        {
+          key: '/settings/operating-state',
+          label: '运行状态',
+          icon: 'antd:AppstoreOutlined'
+        },
+        {
+          key: '/settings/system-upgrade',
+          label: '系统升级',
+          icon: 'antd:AppstoreOutlined'
         }
       ]
     }

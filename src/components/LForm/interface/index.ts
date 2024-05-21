@@ -1,10 +1,11 @@
 import { DatePicker } from '@/components/DatePicker';
 import { Switch } from '@/components/Switch';
 import { TagGroup } from '@/components/TagGroup';
+import { RangePicker } from '@/components/RangePicker';
+
 import type {
   Cascader,
   Checkbox,
-  DatePicker as AntDatePicker,
   GetProps,
   Input,
   Radio,
@@ -97,7 +98,7 @@ interface DatePickerFormItemProps {
 interface RangePickerFormItemProps {
   type: FormItemTypeEnum.RangePicker;
   fProps?: fProps;
-  props?: GetProps<typeof AntDatePicker.RangePicker>;
+  props?: GetProps<typeof RangePicker>;
 }
 
 interface SwitchFormItemProps {
@@ -139,7 +140,7 @@ export type FDefaultProps = {
   CheckboxGroup: GetProps<typeof Checkbox.Group>;
   TimePicker: GetProps<typeof TimePicker>;
   DatePicker: GetProps<typeof DatePicker>;
-  RangePicker: GetProps<typeof AntDatePicker.RangePicker>;
+  RangePicker: GetProps<typeof RangePicker>;
   Switch: GetProps<typeof Switch>;
   TagGroup: GetProps<typeof TagGroup>;
 };

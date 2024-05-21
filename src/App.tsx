@@ -5,10 +5,16 @@ import zhCN from 'antd/locale/zh_CN';
 import 'dayjs/locale/zh-cn';
 import { ConfigProvider, App as AntApp } from 'antd';
 import { useRequest } from 'ahooks';
-import { getSystemSettingsConfigService } from '@/services/system-settings';
+
+import 'flag-icons/css/flag-icons.min.css';
+import 'virtual:svg-icons-register';
+import 'uno.css';
+import '@unocss/reset/eric-meyer.css'; // unocss提供的浏览器默认样式重置
+import '@/styles/index.scss';
+import { getSystemSettingsConfig } from './api/modules/system-settings';
 
 function App() {
-  useRequest(getSystemSettingsConfigService, {
+  useRequest(getSystemSettingsConfig, {
     onSuccess: (data) => {
       document.title = data.browser_tab_name;
     }

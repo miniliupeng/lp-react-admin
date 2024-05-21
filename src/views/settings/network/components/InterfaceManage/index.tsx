@@ -1,4 +1,3 @@
-import { getNicListService, toggleBizService } from '@/services/network';
 import { useRequest } from 'ahooks';
 import { App, Table } from 'antd';
 import React, { useRef } from 'react';
@@ -9,11 +8,12 @@ import { BoolEnum } from '@/enums';
 import { UpdateModal } from './UpdateModal';
 import { ModalRef } from '@/hooks';
 import { DiagnoseModal } from './DiagnoseModal';
+import { getNicList, toggleBiz } from '@/api/modules/network';
 
 export const InterfaceManage = () => {
   const { modal } = App.useApp();
-  const { data, refresh, loading } = useRequest(getNicListService);
-  const { runAsync } = useRequest(toggleBizService, {
+  const { data, refresh, loading } = useRequest(getNicList);
+  const { runAsync } = useRequest(toggleBiz, {
     manual: true,
     onSuccess: () => {
       refresh();

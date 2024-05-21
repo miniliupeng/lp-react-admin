@@ -1,4 +1,4 @@
-import { getXFFApi, updateXFFApi } from '@/api/modules/network';
+import { getXFF, updateXFF } from '@/api/modules/network';
 import { LForm } from '@/components';
 import { useInlineForm } from '@/hooks';
 
@@ -7,8 +7,8 @@ import { formItems } from './helper';
 
 export const XFF = () => {
   const { form, onFinish } = useInlineForm({
-    query: () => getXFFApi().then((res) => res.data),
-    update: (data) => updateXFFApi(data).then(() => message.success('更新成功')),
+    query: () => getXFF(),
+    update: (data) => updateXFF(data).then(() => message.success('更新成功')),
     showMsg: false
   });
   return (

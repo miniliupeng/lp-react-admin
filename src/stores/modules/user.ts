@@ -1,5 +1,6 @@
 import { User } from '@/api/interface/user';
-import { loginService, logoutService } from '@/services/login';
+import { login, logout } from '@/api/modules/login';
+import { getMd5Str } from '@/utils/string';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
@@ -15,14 +16,17 @@ export const useUserStore = create<UserStore>()(
       token: '',
       userInfo: {},
       login: async (values) => {
-        const { data } = await loginService(values);
+        const { data } = await login({
+          ...values,
+          password: getMd5Str(values.password)
+        });
         set({
           token: data.token,
           userInfo: data.user
         });
       },
       logout: () => {
-        logoutService().finally(() => {
+        logout().finally(() => {
           set({
             token: 'data.token',
             userInfo: {}

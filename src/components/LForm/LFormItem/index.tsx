@@ -1,8 +1,6 @@
+import { Form } from 'antd';
 import { FormItemProps } from '../interface';
-import { Form, Input, Select } from 'antd';
-import { defaultProps } from './helper';
-
-const components: Record<string, any> = { Input, Select };
+import { components, defaultProps } from './helper';
 
 export const LFormItem = (props: FormItemProps) => {
   if (props.type === 'Render') {

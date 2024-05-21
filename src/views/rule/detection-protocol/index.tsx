@@ -1,17 +1,18 @@
-import {
-  getDetectionProtocolListService,
-  updateDetectionProtocolService
-} from '@/services/detection-protocol';
 import { useRequest } from 'ahooks';
 import { ProtocolItem } from './components/ProtocolItem';
 import { TlsModal } from './components/TlsModal';
 import { Fragment, useRef } from 'react';
 import { ModalRef } from '@/hooks';
 import { Divider } from 'antd';
+import {
+  getDetectionProtocolList,
+  updateDetectionProtocol
+} from '@/api/modules/detection-protocol';
 
 const DetectionProtocol = () => {
-  const { data, refresh } = useRequest(getDetectionProtocolListService);
-  const { run } = useRequest(updateDetectionProtocolService, {
+  const { data, refresh } = useRequest(() => getDetectionProtocolList().then((data) => data.list));
+
+  const { run } = useRequest(updateDetectionProtocol, {
     manual: true,
     debounceWait: 300,
     onSuccess: refresh

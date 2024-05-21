@@ -1,6 +1,6 @@
+import { updateNic } from '@/api/modules/network';
 import { interfaceTypeOptions } from '@/config/options/network';
 import { useForwardRefModal } from '@/hooks';
-import { updateNicService } from '@/services/network';
 import { Form, Input, Modal, Radio, message } from 'antd';
 import { forwardRef } from 'react';
 
@@ -8,7 +8,7 @@ export const UpdateModal = forwardRef(
   ({ support = [], refresh }: { support?: string[]; refresh: () => void }, ref) => {
     const { form, ...modalProps } = useForwardRefModal({
       ref,
-      service: updateNicService,
+      service: updateNic,
       onSuccess: (res) => {
         message.success(res.data);
         refresh();

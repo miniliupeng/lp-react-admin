@@ -1,13 +1,13 @@
 import { Switch } from '@/components';
 import { BoolEnum } from '@/enums';
 import { useInlineForm, useModal } from '@/hooks';
-import { getSNMPServerService, updateSNMPServerService } from '@/services/network';
 import { Button, Form, Input, InputNumber, Select } from 'antd';
 import { Oid } from './Oid';
+import { getSNMPServer, updateSNMPServer } from '@/api/modules/network';
 export const SNMPServiceConfig = () => {
   const { form, onFinish, loading } = useInlineForm({
-    query: getSNMPServerService,
-    update: updateSNMPServerService
+    query: () => getSNMPServer().then((res) => res.data),
+    update: updateSNMPServer
   });
 
   const { showModal } = useModal();

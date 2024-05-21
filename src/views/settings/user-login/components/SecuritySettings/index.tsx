@@ -1,11 +1,16 @@
 import { useInlineForm } from '@/hooks';
-import { Form, Row, Select, Switch } from 'antd';
-import { getSafetyConfigService, updateSafetyConfigService } from '@/services/user';
+import { Form, Row, Select } from 'antd';
+import { getSafetyConfig, updateSafetyConfig } from '@/api/modules/user';
+import { Switch } from '@/components';
+import { BoolEnum } from '@/enums';
 
 export const SecuritySettings = () => {
   const { form, onValuesChange } = useInlineForm({
-    query: getSafetyConfigService,
-    update: updateSafetyConfigService
+    query: () =>
+      getSafetyConfig({
+        configuration: 'safety_config'
+      }),
+    update: updateSafetyConfig
   });
 
   return (
@@ -14,7 +19,7 @@ export const SecuritySettings = () => {
       <Form form={form} onValuesChange={onValuesChange}>
         <Row className="gap-4">
           <Form.Item label="登录异常账号锁定" name="is_account_lock" valuePropName="checked">
-            <Switch />
+            <Switch field={[BoolEnum.TRUE, BoolEnum.FALSE2]} />
           </Form.Item>
           <Form.Item
             noStyle
@@ -74,7 +79,7 @@ export const SecuritySettings = () => {
         </Row>
         <Row className="gap-4">
           <Form.Item label="页面超时锁定" name="is_page_timeout" valuePropName="checked">
-            <Switch />
+            <Switch field={[BoolEnum.TRUE, BoolEnum.FALSE2]} />
           </Form.Item>
           <Form.Item
             noStyle

@@ -1,24 +1,39 @@
+import { diagnose, getDiagnoseOptions } from '@/api/modules/network';
 import { useForwardRefModal } from '@/hooks';
-import { diagnoseService, getDiagnoseOptionsService } from '@/services/network';
 import { useRequest } from 'ahooks';
 import { Button, Form, Input, Modal, Select } from 'antd';
 import { forwardRef, useState } from 'react';
 
 export const DiagnoseModal = forwardRef((_, ref) => {
-  const { run: getDiagnoseOptions, data: diagnoseOptions } = useRequest(getDiagnoseOptionsService, {
-    manual: true
-  });
+  const { run: getOptions, data: diagnoseOptions } = useRequest(
+    () =>
+      getDiagnoseOptions().then((data) =>
+        data.commands.map((item) => ({
+          label: item,
+          value: item
+        }))
+      ),
+    {
+      manual: true
+    }
+  );
   const [output, setOutput] = useState('');
   const { form, onFinish, confirmLoading, ...modalProps } = useForwardRefModal({
     ref,
     afterOpen: (data) => {
-      getDiagnoseOptions();
+      getOptions();
       form.setFieldValue('nic', `${data.name}-${data.ip}`);
     },
     afterClose: () => {
       setOutput('');
     },
-    service: diagnoseService,
+    service: (data) =>
+      diagnose({
+        command: data.command,
+        nicname: data.name,
+        nicip: data.ip,
+        address: data.address
+      }),
     onBefore: () => {
       setOutput('');
     },

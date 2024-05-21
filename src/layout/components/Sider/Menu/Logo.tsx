@@ -1,8 +1,8 @@
 // import logo from '@/assets/svg/react.svg';
-import { getLogoService } from '@/services/system-settings';
+import { getLogo } from '@/api/modules/system-settings';
 import { useRequest } from 'ahooks';
 const Logo = () => {
-  const { data } = useRequest(() => getLogoService({ image_type: 0 }), {
+  const { data } = useRequest(() => getLogo({ image_type: 0 }), {
     cacheKey: `cacheKey-logo-0`
   });
   return (

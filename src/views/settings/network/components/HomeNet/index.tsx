@@ -5,8 +5,8 @@ import { message } from 'antd';
 
 export const HomeNet = () => {
   const { data, refresh } = useRequest(async () => {
-    const res = await getHomeNet();
-    return res.data.homenet.map((item) => ({ name: item, closable: true }));
+    const data = await getHomeNet();
+    return data.homenet.map((item) => ({ name: item, closable: true }));
   });
   const { run: add } = useRequest(addHomeNet, {
     manual: true,

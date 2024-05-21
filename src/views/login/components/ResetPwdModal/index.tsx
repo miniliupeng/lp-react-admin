@@ -1,5 +1,6 @@
-import { getCaptchaService, updateLoginUserPwdervice } from '@/services/login';
-import { getUserPwdRuleService } from '@/services/user';
+import { getCaptcha, updateLoginUserPwd } from '@/api/modules/login';
+import { getPwdRule } from '@/api/modules/user';
+import { getBase64Str, getMd5Str } from '@/utils/string';
 import { getComfirmPwdValidator, getPwdValidator } from '@/utils/validator';
 import { useRequest } from 'ahooks';
 import { Form, Input, Modal, message } from 'antd';
@@ -11,8 +12,8 @@ export interface ResetPwdModalRefProps {
 
 export const ResetPwdModal = forwardRef((_, ref: ForwardedRef<ResetPwdModalRefProps>) => {
   const [form] = Form.useForm();
-  const { data: pwdRule } = useRequest(getUserPwdRuleService);
-  const { data: captacha, refresh } = useRequest(getCaptchaService);
+  const { data: pwdRule } = useRequest(getPwdRule);
+  const { data: captacha, refresh } = useRequest(() => getCaptcha().then((res) => res.data));
   const [open, setOpen] = useState(false);
   const onCancel = () => {
     setOpen(false);
@@ -26,9 +27,12 @@ export const ResetPwdModal = forwardRef((_, ref: ForwardedRef<ResetPwdModalRefPr
   const onOk = async () => {
     try {
       const values = await form.validateFields();
-      const { data } = await updateLoginUserPwdervice({
+      const { data } = await updateLoginUserPwd({
         ...values,
-        captcha_id: captacha?.captchaId
+        captcha_id: captacha?.captchaId,
+        password: getBase64Str(values.password),
+        confirm_pass: getBase64Str(values.confirm_pass),
+        old_pass: getMd5Str(values.old_pass)
       });
       message.success(data);
       onCancel();

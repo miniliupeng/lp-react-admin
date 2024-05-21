@@ -1,24 +1,24 @@
 import { Editable } from '@/components';
-import { getSNMPTrapDetailService, updateSNMPTrapDetailService } from '@/services/network';
 import { useRequest } from 'ahooks';
 import { Modal } from 'antd';
 import { forwardRef, useImperativeHandle, useState } from 'react';
 import { columns, defaultValue } from './helper';
 import { useRowSelection } from '@/hooks';
 import { message } from 'antd/lib';
+import { getSNMPTrapDetail, updateSNMPTrapDetail } from '@/api/modules/network';
 
 export const Trap = forwardRef((_, ref) => {
   const {
     data = defaultValue,
     run,
     mutate
-  } = useRequest(getSNMPTrapDetailService, {
+  } = useRequest(() => getSNMPTrapDetail().then((res) => JSON.parse(res.data.trap_detail)), {
     manual: true,
     onSuccess: (data) => {
       rowSelection.onChange(data.filter((item) => item.status === 1).map((item) => item.id));
     }
   });
-  const { run: update, loading } = useRequest(updateSNMPTrapDetailService, {
+  const { run: update, loading } = useRequest(updateSNMPTrapDetail, {
     manual: true,
     onSuccess: (res) => {
       message.success(res.data);

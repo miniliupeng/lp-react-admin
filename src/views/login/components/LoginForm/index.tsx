@@ -2,22 +2,21 @@ import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Form, Input, message } from 'antd';
-// import Logo from '@/assets/img/navigation_logo_default.png';
 
 import { HOME_URL } from '@/config';
 import { useUserStore } from '@/stores';
-import { getCaptchaService } from '@/services/login';
 import { useRequest } from 'ahooks';
 import { ResetPwdModal, ResetPwdModalRefProps } from '../ResetPwdModal';
-import { getLogoService, getSystemSettingsConfigService } from '@/services/system-settings';
+import { getLogo, getSystemSettingsConfig } from '@/api/modules/system-settings';
+import { getCaptcha } from '@/api/modules/login';
 
 export const LoginForm = () => {
   const navigate = useNavigate();
   const login = useUserStore((state) => state.login);
 
-  const { data, refresh } = useRequest(getCaptchaService);
-  const { data: config } = useRequest(getSystemSettingsConfigService);
-  const { data: logo } = useRequest(() => getLogoService({ image_type: 1 }));
+  const { data, refresh } = useRequest(() => getCaptcha().then((res) => res.data));
+  const { data: config } = useRequest(getSystemSettingsConfig);
+  const { data: logo } = useRequest(() => getLogo({ image_type: 1 }));
   const [loading, setLoading] = useState(false);
   const [form] = Form.useForm();
   const ref = useRef() as React.MutableRefObject<ResetPwdModalRefProps>;

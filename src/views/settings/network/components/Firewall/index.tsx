@@ -1,11 +1,23 @@
+import { getFirewall, updateFirewall } from '@/api/modules/network';
 import { Switch, TagGroup } from '@/components';
 import { useInlineForm } from '@/hooks';
-import { getFirewallService, updateFirewallService } from '@/services/network';
 import { Form } from 'antd';
 export const Firewall = () => {
   const { form, onValuesChange } = useInlineForm({
-    query: getFirewallService,
-    update: updateFirewallService
+    query: () =>
+      getFirewall().then((data) => ({
+        ...data,
+        ports:
+          data.ports?.map((item) => ({
+            name: item.port,
+            closable: !item.lock
+          })) || []
+      })),
+    update: (data) =>
+      updateFirewall({
+        active: data.active,
+        ports: data?.ports?.map((item) => item.name)
+      })
   });
 
   return (

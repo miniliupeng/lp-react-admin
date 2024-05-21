@@ -1,14 +1,11 @@
+import { getSystemSettingsConfig, updateSystemSettingsConfig } from '@/api/modules/system-settings';
 import { useInlineForm } from '@/hooks';
-import {
-  getSystemSettingsConfigService,
-  updateSystemSettingsConfigService
-} from '@/services/system-settings';
 import { Button, Form, Input } from 'antd';
 
 export const NameConfig = () => {
   const { form, onFinish } = useInlineForm({
-    query: getSystemSettingsConfigService,
-    update: updateSystemSettingsConfigService
+    query: getSystemSettingsConfig,
+    update: updateSystemSettingsConfig
   });
   return (
     <div>

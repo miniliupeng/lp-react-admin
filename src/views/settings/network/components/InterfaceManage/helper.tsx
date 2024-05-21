@@ -1,10 +1,9 @@
 import { ButtonGroup, Switch } from '@/components';
 import { BoolEnum } from '@/enums';
 import { interfaceTypeEnum, interfaceTypeMapEnum } from '@/enums/nework';
+import { ColumnsType } from '@/typings/antd';
 import { ipToCIDR } from '@/utils/ip';
-import { Badge, type GetProp, type TableProps } from 'antd';
-
-type ColumnsType<T extends object> = GetProp<TableProps<T>, 'columns'>;
+import { Badge, ButtonProps } from 'antd';
 
 export const getColumns = (onEnable, onOpenUpdateModal, onOpenDiagnoseModal): ColumnsType<any> => [
   {
@@ -47,15 +46,17 @@ export const getColumns = (onEnable, onOpenUpdateModal, onOpenDiagnoseModal): Co
   {
     render: (record) => (
       <ButtonGroup
+        size="small"
         options={[
-          { children: '编辑', onClick: () => onOpenUpdateModal(record) },
+          { type: 'primary', children: '编辑', onClick: () => onOpenUpdateModal(record) },
           ...(record.type === interfaceTypeEnum.manage
-            ? [
+            ? ([
                 {
+                  type: 'primary',
                   children: '诊断',
                   onClick: () => onOpenDiagnoseModal(record)
                 }
-              ]
+              ] as ButtonProps[])
             : [])
         ]}
       />

@@ -1,5 +1,6 @@
-import { updateUserPwdService } from '@/services/login';
-import { getUserPwdRuleService } from '@/services/user';
+import { updateUserPwd } from '@/api/modules/login';
+import { getPwdRule } from '@/api/modules/user';
+import { getBase64Str, getMd5Str } from '@/utils/string';
 import { getComfirmPwdValidator, getPwdValidator } from '@/utils/validator';
 import { useRequest } from 'ahooks';
 import { Form, Input, Modal, message } from 'antd';
@@ -11,14 +12,23 @@ export interface UpdatePwdModalRefProps {
 
 export const UpdatePwdModal = forwardRef((_, ref: ForwardedRef<UpdatePwdModalRefProps>) => {
   const [form] = Form.useForm();
-  const { data: pwdRule } = useRequest(getUserPwdRuleService);
-  const { loading, run } = useRequest(updateUserPwdService, {
-    manual: true,
-    onSuccess: ({ data }) => {
-      message.success(data);
-      onCancel();
+  const { data: pwdRule } = useRequest(getPwdRule);
+  const { loading, run } = useRequest(
+    (data) =>
+      updateUserPwd({
+        ...data,
+        password: getBase64Str(data.password),
+        confirm_pass: getBase64Str(data.confirm_pass),
+        old_pass: getMd5Str(data.old_pass)
+      }),
+    {
+      manual: true,
+      onSuccess: ({ data }) => {
+        message.success(data);
+        onCancel();
+      }
     }
-  });
+  );
   const [open, setOpen] = useState(false);
   const onCancel = () => {
     setOpen(false);

@@ -1,9 +1,9 @@
 import { Button, Form, Input, InputNumber } from 'antd';
-import { getSessionId, getSshCodeService } from '@/services/user';
 import { useRequest } from 'ahooks';
+import { getSessionId, getSshCode } from '@/api/modules/user';
 
 export const SecurityOperations = () => {
-  const { data: qrcode } = useRequest(getSshCodeService);
+  const { data: qrcode } = useRequest(getSshCode);
   const onFinish = async (values) => {
     const session_id = await getSessionId(values);
     window.open(
@@ -42,7 +42,7 @@ export const SecurityOperations = () => {
         </Form>
         <div className="flex-col items-center gap-2">
           <span>扫码登录</span>
-          <img width="160px" height="160px" src={qrcode} />
+          <img width="160px" height="160px" src={`data:image/png;base64,${qrcode}`} />
           <span>使用飞书app扫码获取登录信息</span>
         </div>
       </div>

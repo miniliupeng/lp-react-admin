@@ -1,14 +1,14 @@
 import { Switch } from '@/components';
 import { BoolEnum } from '@/enums';
 import { ModalRef, useInlineForm } from '@/hooks';
-import { getSNMPTrapService, updateSNMPTrapService } from '@/services/network';
 import { Button, Form, Input, InputNumber } from 'antd';
 import { Trap } from './Trap';
 import { useRef } from 'react';
+import { getSNMPTrap, updateSNMPTrap } from '@/api/modules/network';
 export const SNMPTrapConfig = () => {
   const { form, onFinish, loading } = useInlineForm({
-    query: getSNMPTrapService,
-    update: updateSNMPTrapService
+    query: () => getSNMPTrap().then((res) => res.data),
+    update: updateSNMPTrap
   });
 
   const TrapRef = useRef() as React.MutableRefObject<ModalRef>;

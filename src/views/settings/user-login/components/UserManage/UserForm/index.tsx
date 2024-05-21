@@ -1,11 +1,23 @@
-import { getRolesService, getUserPwdRuleService } from '@/services/user';
+import { getPwdRule, getRoles } from '@/api/modules/user';
+import { RoleNameEnum } from '@/enums';
 import { getComfirmPwdValidator, getPwdValidator } from '@/utils/validator';
 import { useRequest } from 'ahooks';
 import { DatePicker, Form, FormInstance, Input, Select } from 'antd';
 
 export const UserForm = ({ form }: { form?: FormInstance }) => {
-  const { data: roles } = useRequest(getRolesService);
-  const { data: pwdRule } = useRequest(getUserPwdRuleService);
+  const { data } = useRequest(getRoles);
+  const roles = data?.flatMap((item) => {
+    if (item.id !== 1) {
+      return [
+        {
+          label: RoleNameEnum[item.role_name],
+          value: item.id
+        }
+      ];
+    }
+    return [];
+  });
+  const { data: pwdRule } = useRequest(getPwdRule);
   const isAdd = !form!.getFieldValue('id');
   return (
     <Form form={form} labelCol={{ span: 6 }}>

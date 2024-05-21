@@ -1,11 +1,11 @@
+import { getSshPort, updateSshPort } from '@/api/modules/network';
 import { useInlineForm } from '@/hooks';
-import { getSshPortService, updateSshPortService } from '@/services/network';
 import { Button, Form, InputNumber } from 'antd';
 
 export const SshPort = () => {
   const { form, onFinish } = useInlineForm({
-    query: getSshPortService,
-    update: updateSshPortService,
+    query: getSshPort,
+    update: updateSshPort,
     msgKey: 'reason'
   });
   return (

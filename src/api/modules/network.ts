@@ -9,14 +9,14 @@ import {
 } from '../interface/network';
 
 // 获取接口管理列表
-export const getNicListApi = () =>
+export const getNicList = () =>
   request<ResNicList>({
     method: 'GET',
     url: '/ndr/api/network/nic/list'
   });
 
 // 更新接口
-export const updateNicApi = (data) =>
+export const updateNic = (data) =>
   request({
     method: 'POST',
     url: '/ndr/api/network/nic/update',
@@ -24,7 +24,7 @@ export const updateNicApi = (data) =>
   });
 
 // 启用停用业务接口
-export const toggleBizApi = (data) =>
+export const toggleBiz = (data) =>
   request({
     method: 'POST',
     url: '/ndr/api/network/nic/togglebiz',
@@ -32,13 +32,13 @@ export const toggleBizApi = (data) =>
   });
 
 // 获取诊断命令列表
-export const getDiagnoseOptionsApi = () =>
+export const getDiagnoseOptions = () =>
   request<{ commands: string[] }>({
     method: 'GET',
     url: '/ndr/api/network/nic/diagnoseoptions'
   });
 // 诊断
-export const diagnoseApi = (data) =>
+export const diagnose = (data) =>
   request({
     method: 'POST',
     url: '/ndr/api/network/nic/diagnose',
@@ -46,14 +46,14 @@ export const diagnoseApi = (data) =>
   });
 
 // 获取防火墙
-export const getFirewallApi = () =>
+export const getFirewall = () =>
   request<ResFirewall>({
     method: 'GET',
     url: '/ndr/api/network/ufw/status'
   });
 
 // 更新防火墙设置
-export const updateFirewallApi = (data) =>
+export const updateFirewall = (data) =>
   request({
     method: 'POST',
     url: '/ndr/api/network/ufw/apply',
@@ -61,14 +61,14 @@ export const updateFirewallApi = (data) =>
   });
 
 // 获取SSH端口配置
-export const getSshPortApi = () =>
+export const getSshPort = () =>
   request<ResSshPort>({
     method: 'GET',
     url: '/ndr/api/network/sshport/get'
   });
 
 // 更新防火墙设置
-export const updateSshPortApi = (data) =>
+export const updateSshPort = (data) =>
   request({
     method: 'POST',
     url: '/ndr/api/network/sshport/set',
@@ -76,14 +76,14 @@ export const updateSshPortApi = (data) =>
   });
 
 // 获取SNMP服务配置
-export const getSNMPServerApi = () =>
+export const getSNMPServer = () =>
   request<ResSNMPServer>({
     method: 'POST',
     url: '/ndr/api/ndr/snmp_manage/get_snmp_server_config'
   });
 
 // 更新SNMP服务配置
-export const updateSNMPServerApi = (data) =>
+export const updateSNMPServer = (data) =>
   request({
     method: 'POST',
     url: '/ndr/api/ndr/snmp_manage/save_snmp_server_config',
@@ -91,13 +91,13 @@ export const updateSNMPServerApi = (data) =>
   });
 
 // 获取SNMP Trap配置
-export const getSNMPTrapApi = () =>
+export const getSNMPTrap = () =>
   request<ResSNMPTrap>({
     method: 'POST',
     url: '/ndr/api/ndr/snmp_manage/get_snmp_trap_config'
   });
 // 更新SNMP Trap配置
-export const updateSNMPTrapApi = (data) =>
+export const updateSNMPTrap = (data) =>
   request({
     method: 'POST',
     url: '/ndr/api/ndr/snmp_manage/save_snmp_trap_config',
@@ -105,13 +105,13 @@ export const updateSNMPTrapApi = (data) =>
   });
 
 // 获取SNMP Trap 详情配置
-export const getSNMPTrapDetailApi = () =>
+export const getSNMPTrapDetail = () =>
   request<{ trap_detail: string }>({
     method: 'POST',
     url: '/ndr/api/ndr/snmp_manage/get_snmp_trap_detail'
   });
 // 更新SNMP Trap 详情配置
-export const updateSNMPTrapDetailApi = (data) =>
+export const updateSNMPTrapDetail = (data) =>
   request<string>({
     method: 'POST',
     url: '/ndr/api/ndr/snmp_manage/save_snmp_trap_detail',
@@ -139,13 +139,13 @@ export const delHomeNet = (data) =>
     data
   });
 // 获取 XFF 配置
-export const getXFFApi = () =>
+export const getXFF = () =>
   request({
     method: 'GET',
     url: '/ndr/api/network/xff/get'
   });
 // 更新 XFF 配置
-export const updateXFFApi = (data) =>
+export const updateXFF = (data) =>
   request<string>({
     method: 'POST',
     url: '/ndr/api/network/xff/set',

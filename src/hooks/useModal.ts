@@ -1,5 +1,5 @@
 import { App, ModalFuncProps } from 'antd';
-import { useRef } from 'react';
+import { useState, useRef } from 'react';
 
 type ConfigUpdate = ModalFuncProps | ((prevConfig: ModalFuncProps) => ModalFuncProps);
 type ModalInstance = { destroy: () => void; update: (configUpdate: ConfigUpdate) => void } & {
@@ -26,5 +26,21 @@ export const useModal = (config?: ModalFuncProps) => {
   return {
     showModal,
     closeModal
+  };
+};
+
+export const useModal2 = () => {
+  const [open, setOpen] = useState(false);
+  const onOpen = () => {
+    setOpen(true);
+  };
+  const onCancel = () => {
+    setOpen(false);
+  };
+
+  return {
+    open,
+    onOpen,
+    onCancel
   };
 };

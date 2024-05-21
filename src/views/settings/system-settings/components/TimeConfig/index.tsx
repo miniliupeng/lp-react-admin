@@ -1,22 +1,32 @@
-import {
-  getTimeByTimeZoneService,
-  getTimeConfigService,
-  getTimeZoneService,
-  syncStatusService,
-  syncTimeService,
-  updateTimeConfigService
-} from '@/services/system-settings';
 import { useRequest } from 'ahooks';
 import { App, Button, Form, Input, Select, message } from 'antd';
 import { DatePicker, Switch } from '@/components';
 import { BoolEnum } from '@/enums';
+import {
+  getTimeByTimeZone,
+  getTimeConfig,
+  getTimeZone,
+  syncStatus,
+  syncTime,
+  updateTimeConfig
+} from '@/api/modules/system-settings';
 export const TimeConfig = () => {
   const { modal } = App.useApp();
   const [form] = Form.useForm();
-  const { refresh } = useRequest(getTimeConfigService, {
-    onSuccess: (data) => form.setFieldsValue(data)
-  });
-  const { data: timeZoneOptions } = useRequest(getTimeZoneService);
+  const { refresh } = useRequest(
+    () =>
+      getTimeConfig().then((data) => ({
+        id: data.id,
+        sync_status: data.sync_status,
+        addr: data.sync_time_addr,
+        time_zone: data.time_zone,
+        sys_time: data.date_time
+      })),
+    {
+      onSuccess: (data) => form.setFieldsValue(data)
+    }
+  );
+  const { data: timeZoneOptions } = useRequest(getTimeZone);
 
   const onFinish = async ({ sync_status }) => {
     const values = form.getFieldsValue(true);
@@ -25,23 +35,23 @@ export const TimeConfig = () => {
       modal.confirm({
         title: '确认修改系统时间吗？',
         onOk: async () => {
-          const res = await updateTimeConfigService(values);
+          const res = await updateTimeConfig(values);
           message.success(res.reason);
           refresh();
         }
       });
     } else {
-      const { status } = await syncStatusService(values);
-      if (status === 2) {
+      const res = await syncStatus(values);
+      if (res.data.status === 2) {
         return message.error('修改失败，请检查NTP服务器的时间准确性');
       }
       modal.confirm({
         title:
-          status === 0
+          res.data.status === 0
             ? '系统修改时间需要重启服务，大概需要15分钟，请确认'
             : '确认修改时间吗?请确认修改时间的准确性',
         onOk: async () => {
-          const res = await syncTimeService(values);
+          const res = await syncTime(values);
           message.success(res.reason);
           refresh();
         }
@@ -49,8 +59,8 @@ export const TimeConfig = () => {
     }
   };
   const onTimeZoneChange = async (time_zone) => {
-    const sys_time = await getTimeByTimeZoneService({ time_zone });
-    form.setFieldsValue({ sys_time });
+    const res = await getTimeByTimeZone({ time_zone });
+    form.setFieldsValue({ sys_time: res.reason });
   };
   return (
     <div>

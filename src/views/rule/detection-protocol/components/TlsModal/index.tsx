@@ -1,17 +1,17 @@
+import { getTlsCert, updateTlsCert } from '@/api/modules/detection-protocol';
 import { useForwardRefModal } from '@/hooks';
-import { getTlsCertService, updateTlsCertService } from '@/services/detection-protocol';
 import { useRequest } from 'ahooks';
 import { Form, Input, Modal, message } from 'antd';
 import { forwardRef } from 'react';
 
 export const TlsModal = forwardRef((_, ref) => {
-  const { run: get } = useRequest(getTlsCertService, {
+  const { run: get } = useRequest(getTlsCert, {
     manual: true,
     onSuccess: (data) => form.setFieldsValue(data)
   });
   const { form, ...modalProps } = useForwardRefModal({
     ref,
-    service: updateTlsCertService,
+    service: updateTlsCert,
     afterOpen: get,
     onSuccess: (res) => message.success(res.reason)
   });

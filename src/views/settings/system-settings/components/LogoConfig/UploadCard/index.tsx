@@ -4,7 +4,7 @@ import { PlusOutlined } from '@ant-design/icons';
 import type { GetProp, UploadProps } from 'antd';
 import './index.scss';
 import { useRequest } from 'ahooks';
-import { getLogoService, updateLogoService } from '@/services/system-settings';
+import { getLogo, updateLogo } from '@/api/modules/system-settings';
 
 type FileType = Parameters<GetProp<UploadProps, 'beforeUpload'>>[0];
 
@@ -34,11 +34,11 @@ const whMap = {
 
 export const UploadCard = ({ title, image_type }) => {
   const [imageUrl, setImageUrl] = useState<string>();
-  const { refresh } = useRequest(() => getLogoService({ image_type }), {
+  const { refresh } = useRequest(() => getLogo({ image_type }), {
     cacheKey: `cacheKey-logo-${image_type}`,
     onSuccess: setImageUrl
   });
-  const { run } = useRequest(updateLogoService, {
+  const { run } = useRequest(updateLogo, {
     manual: true,
     onSuccess: ({ data }) => {
       message.success(data);

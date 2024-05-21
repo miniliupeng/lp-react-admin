@@ -22,6 +22,14 @@ export const settingsRoutes: RouteObject[] = [
       {
         path: '/settings/network',
         element: LazyLoad(lazy(() => import('@/views/settings/network')))
+      },
+      {
+        path: '/settings/operating-state',
+        element: LazyLoad(lazy(() => import('@/views/settings/operating-state')))
+      },
+      {
+        path: '/settings/system-upgrade',
+        element: LazyLoad(lazy(() => import('@/views/settings/system-upgrade')))
       }
     ]
   }

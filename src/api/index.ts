@@ -3,6 +3,11 @@ import { useUserStore } from '@/stores';
 import { message } from 'antd';
 import { LOGIN_URL } from '@/config';
 import { ResultData } from './interface';
+import { downloadBolbFile } from '@/utils/file';
+
+interface simpleRequestConfig<T> extends AxiosRequestConfig<T> {
+  method: 'get' | 'GET';
+}
 
 const instance = axios.create();
 
@@ -15,6 +20,7 @@ instance.interceptors.request.use((config) => {
 instance.interceptors.response.use(
   (response) => {
     const res = response.data;
+    if (response.config.responseType === 'blob' && response.data instanceof Blob) return response;
     if (!handleGeneralError(res.result, res.reason)) return Promise.reject(res);
     return res;
   },
@@ -91,6 +97,25 @@ const handleGeneralError = (errno: string | number, errmsg: string) => {
   return true;
 };
 
-const request = <T>(config: AxiosRequestConfig<any>): Promise<ResultData<T>> => instance(config);
+function isSimpleRequestConfig(
+  config: AxiosRequestConfig<any>
+): config is simpleRequestConfig<any> {
+  return ['GET', 'get'].includes(config.method!);
+}
+
+function request<T>(config: simpleRequestConfig<any>): Promise<T>;
+function request<T>(config: AxiosRequestConfig<any>): Promise<ResultData<T>>;
+function request<T>(
+  config: AxiosRequestConfig<any> | simpleRequestConfig<any>
+): Promise<ResultData<T> | T> {
+  if (isSimpleRequestConfig(config)) return instance(config).then((res) => res.data);
+  return instance(config);
+}
+
+export function download(config: AxiosRequestConfig<any>, filename?: string) {
+  return instance({ responseType: 'blob', ...config }).then((res) =>
+    downloadBolbFile(res, filename)
+  );
+}
 
 export default request;
