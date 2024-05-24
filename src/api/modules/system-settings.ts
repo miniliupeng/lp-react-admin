@@ -1,5 +1,7 @@
 import request from '..';
 import {
+  ResOpenAppDoc,
+  ResOpenAppList,
   ResSystemSettingsConfig,
   ResTimeConfig,
   ResTimeStatusConfig
@@ -71,4 +73,30 @@ export const syncTime = (data) =>
     method: 'POST',
     url: '/ndr/api/sysmaintain/sync_time',
     data
+  });
+
+// 对外Api列表
+export const getOpenAppList = () =>
+  request<ResOpenAppList>({
+    method: 'GET',
+    url: '/ndr/api/openapp/list'
+  });
+// 新增对外Api
+export const addOpenApp = (data) =>
+  request({
+    method: 'POST',
+    url: '/ndr/api/openapp/add',
+    data
+  });
+// 删除对外Api
+export const deleteOpenApp = (data) =>
+  request({
+    method: 'POST',
+    url: '/ndr/api/openapp/delete',
+    data
+  });
+export const getOpenAppDoc = () =>
+  request<ResOpenAppDoc>({
+    method: 'GET',
+    url: '/ndr/api/openapp/apis'
   });

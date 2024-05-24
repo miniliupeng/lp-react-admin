@@ -2,10 +2,11 @@ import { FDefaultProps, FormItemTypeEnum } from '../interface';
 import { DatePicker } from '@/components/DatePicker';
 import { Switch } from '@/components/Switch';
 import { TagGroup } from '@/components/TagGroup';
+import { RangePicker } from '@/components/RangePicker';
+
 import {
   Cascader,
   Checkbox,
-  DatePicker as AntDatePicker,
   Input,
   Radio,
   Select,
@@ -25,7 +26,7 @@ export const components: Omit<Record<FormItemTypeEnum, any>, 'Render'> = {
   CheckboxGroup: Checkbox.Group,
   TimePicker,
   DatePicker,
-  RangePicker: AntDatePicker.RangePicker,
+  RangePicker: RangePicker,
   Switch,
   TagGroup
 };

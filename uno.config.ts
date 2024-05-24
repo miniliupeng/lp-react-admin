@@ -56,7 +56,8 @@ export default defineConfig({
     'ellipsis-text': 'nowrap-hidden text-ellipsis',
     'page-card': 'flex-col overflow-hidden p-5 rounded color-text bg-card',
     'transition-base': 'transition-all duration-300 ease-in-out',
-    'page-wrapper': 'rounded-2 shadow bg-[var(--admin-bg-1)] px-4'
+    'page-wrapper': 'rounded-2 shadow bg-[var(--admin-bg-1)] px-4',
+    'table-btn': 'cursor-pointer text-primary hover:text-[var(--ant-color-primary-hover)]'
   },
   theme: {
     colors: {

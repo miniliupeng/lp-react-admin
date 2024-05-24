@@ -2,7 +2,7 @@ import { Tabs } from 'antd';
 import type { TabsProps } from 'antd';
 import StickyBox from 'react-sticky-box';
 interface LTabsProps extends TabsProps {
-  headerFixed: boolean;
+  headerFixed?: boolean;
 }
 
 const renderTabBar: TabsProps['renderTabBar'] = (props, DefaultTabBar) => (

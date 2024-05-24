@@ -1,11 +1,12 @@
 import { Form, ModalFuncProps, message } from 'antd';
 import { useModal } from './useModal';
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 interface useFormModalParams {
-  title?: string;
+  title?: ReactNode;
+  titleText?: string;
   content: any;
-  add: (data: any) => Promise<any>;
+  add?: (data: any) => Promise<any>;
   update?: (data?: any) => Promise<any>;
   refresh: () => void;
 }
@@ -13,7 +14,14 @@ interface useFormModalParams {
 interface openModalParams extends ModalFuncProps {
   data?: any;
 }
-export const useFormModal = ({ title, content, add, update, refresh }: useFormModalParams) => {
+export const useFormModal = ({
+  title,
+  titleText,
+  content,
+  add,
+  update,
+  refresh
+}: useFormModalParams) => {
   const [form] = Form.useForm();
   const onOk = async () => {
     const values = await form.validateFields();
@@ -37,7 +45,7 @@ export const useFormModal = ({ title, content, add, update, refresh }: useFormMo
   const openModal = ({ data, ...restParams }: openModalParams = {}) => {
     form.setFieldsValue(data);
     showModal({
-      title: data ? `编辑${title}` : `新增${title}`,
+      title: title || (data ? `编辑${titleText}` : `新增${titleText}`),
       ...restParams
     });
   };

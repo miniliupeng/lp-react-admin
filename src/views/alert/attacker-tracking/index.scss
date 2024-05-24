@@ -1,0 +1,13 @@
+.l-calendar {
+  --ant-calendar-item-active-bg: var(--ant-calendar-full-bg) !important;
+  --ant-color-primary: var(--ant-color-text-base);
+  --ant-calendar-cell-hover-bg: var(--ant-calendar-full-bg) !important;
+
+  .ant-picker-cell {
+    cursor: default;
+  }
+
+  .ant-picker-calendar-date-today {
+    border-color: var(--ant-color-split) !important;
+  }
+}

@@ -34,12 +34,34 @@ export const useAuthStore = create<AuthStore>()((set, get) => ({
           key: '/rule/detection-protocol',
           label: '检测协议',
           icon: 'local:react'
+        },
+        {
+          key: '/rule/web-attack',
+          label: 'web攻击',
+          icon: 'local:react'
+        },
+        {
+          key: '/rule/network-attack',
+          label: '网络攻击',
+          icon: 'local:react'
         }
       ]
     },
     {
       key: '/alert',
-      label: '威胁告警'
+      label: '告警与威胁',
+      children: [
+        {
+          key: '/alert/alarm-list',
+          label: '告警调查',
+          icon: 'local:react'
+        },
+        {
+          key: '/alert/attacker-tracking',
+          label: '攻击者追踪',
+          icon: 'local:react'
+        }
+      ]
     },
     {
       key: '/response',

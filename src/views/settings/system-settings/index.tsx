@@ -2,6 +2,7 @@ import { Divider } from 'antd';
 import { LogoConfig } from './components/LogoConfig';
 import { NameConfig } from './components/NameConfig';
 import { TimeConfig } from './components/TimeConfig';
+import { WebApi } from './components/WebApi';
 
 const SystemLogin = () => {
   return (
@@ -11,6 +12,8 @@ const SystemLogin = () => {
       <NameConfig />
       <Divider />
       <TimeConfig />
+      <Divider />
+      <WebApi />
     </div>
   );
 };

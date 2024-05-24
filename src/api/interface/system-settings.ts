@@ -15,3 +15,35 @@ export interface ResTimeConfig {
 export interface ResTimeStatusConfig {
   status: 0 | 1 | 2;
 }
+
+export interface ResOpenAppList {
+  list: {
+    app_key: string;
+    app_name: string;
+    app_secret: string;
+    create_time: string;
+    id: number;
+    note: string;
+  }[];
+  total: number;
+}
+
+export type ResOpenAppDoc = {
+  group: string;
+  description: string;
+  apis: {
+    name: string;
+    url: string;
+    method: string;
+    params: [
+      {
+        name: string;
+        type: string;
+        note: string;
+      }
+    ];
+    response: string;
+    description: string;
+    example: string;
+  }[];
+}[];

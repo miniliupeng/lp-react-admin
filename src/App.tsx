@@ -3,6 +3,7 @@ import Router from './router';
 
 import zhCN from 'antd/locale/zh_CN';
 import 'dayjs/locale/zh-cn';
+
 import { ConfigProvider, App as AntApp } from 'antd';
 import { useRequest } from 'ahooks';
 
@@ -12,6 +13,10 @@ import 'uno.css';
 import '@unocss/reset/eric-meyer.css'; // unocss提供的浏览器默认样式重置
 import '@/styles/index.scss';
 import { getSystemSettingsConfig } from './api/modules/system-settings';
+
+import duration from 'dayjs/plugin/duration';
+import dayjs from 'dayjs';
+dayjs.extend(duration);
 
 function App() {
   useRequest(getSystemSettingsConfig, {
@@ -29,9 +34,11 @@ function App() {
           },
           hashed: false,
           token: {
-            colorPrimary: /* '#379e0e'  */ '#646cff'
+            colorPrimary: /* '#379e0e'  */ '#646cff',
+            fontSize: 12
           }
         }}
+        componentSize="small"
       >
         <AntApp>
           <Router />

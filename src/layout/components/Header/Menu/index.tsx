@@ -15,7 +15,7 @@ export const HorizontalMenu: React.FC = () => {
 
   return (
     <Menu
-      className="justify-center min-w-0  border-b-0"
+      className="justify-center min-w-0  border-b-0 text-3.5"
       mode="horizontal"
       items={menuList}
       selectedKeys={[`/${pathname.split('/')[1]}`]}

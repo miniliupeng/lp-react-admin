@@ -6,3 +6,4 @@ export * from './useForwardRefModal';
 export * from './useRowSelection';
 export * from './useTable';
 export * from './useInterval';
+export * from './useChart';

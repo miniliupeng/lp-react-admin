@@ -30,7 +30,7 @@ const LayoutMenu = () => {
   return (
     <div className="h-full flex flex-col">
       <Menu
-        className="flex-1 overflow-auto"
+        className="flex-1 overflow-auto text-3.5"
         mode="inline"
         triggerSubMenuAction="click"
         selectedKeys={[pathname]}

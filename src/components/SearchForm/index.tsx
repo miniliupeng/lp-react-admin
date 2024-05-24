@@ -21,7 +21,7 @@ export const SearchForm = ({ className = '', items, onSearch }: SearchFormProps)
       className={`search-form ${className}`}
       onFinish={onSearch}
     >
-      <Form.Item>
+      <Form.Item className="ml-auto !mr-0">
         <ButtonGroup
           options={[
             {

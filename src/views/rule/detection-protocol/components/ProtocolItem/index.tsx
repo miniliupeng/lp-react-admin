@@ -1,14 +1,33 @@
+import { Switch } from '@/components';
 import { BoolEnum } from '@/enums';
-import { Button, Space } from 'antd';
 
 export const ProtocolItem = ({
   id,
   protocol_name,
   threat_detection,
   traffic_log,
-  onChange,
-  onOpen
+  run,
+  onOpen,
+  types
 }) => {
+  const checked = types === 0 ? threat_detection : traffic_log;
+  const onChange = (val) => {
+    if (types === 0) {
+      run({
+        id,
+        protocol_name,
+        types: 0,
+        threat_detection: val
+      });
+    } else {
+      run({
+        id,
+        protocol_name,
+        types: 1,
+        traffic_log: val
+      });
+    }
+  };
   return (
     <div className="flex-center " key={id}>
       <label className="w-80px text-right shrink-0">
@@ -20,34 +39,7 @@ export const ProtocolItem = ({
         </span>
         <span className="ml-2px mr-8px">:</span>
       </label>
-      <Space.Compact block>
-        <Button
-          type={threat_detection === BoolEnum.TRUE ? 'primary' : 'default'}
-          onClick={() =>
-            onChange({
-              id,
-              protocol_name,
-              types: 0,
-              threat_detection: threat_detection === BoolEnum.TRUE ? BoolEnum.FALSE : BoolEnum.TRUE
-            })
-          }
-        >
-          威胁检测
-        </Button>
-        <Button
-          type={traffic_log === BoolEnum.TRUE ? 'primary' : 'default'}
-          onClick={() =>
-            onChange({
-              id,
-              protocol_name,
-              types: 1,
-              traffic_log: traffic_log === BoolEnum.TRUE ? BoolEnum.FALSE : BoolEnum.TRUE
-            })
-          }
-        >
-          流量日志
-        </Button>
-      </Space.Compact>
+      <Switch field={[BoolEnum.TRUE, BoolEnum.FALSE]} checked={checked} onChange={onChange} />
     </div>
   );
 };

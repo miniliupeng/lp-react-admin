@@ -54,7 +54,7 @@ export const useTable = ({ service, initParams = {} }: UseMyTable) => {
     }
   };
   useEffect(() => {
-    getTableList({
+    onSearch({
       offset: (state.pagination.current - 1) * state.pagination.pageSize,
       limit: state.pagination.pageSize
     });
@@ -66,7 +66,7 @@ export const useTable = ({ service, initParams = {} }: UseMyTable) => {
       state.pagination.current = pageNumber;
       state.pagination.pageSize = pageSize;
     });
-    getTableList({ offset: (pageNumber - 1) * pageSize, limit: pageSize, ...state.searchParams });
+    getTableList({ ...state.searchParams, offset: (pageNumber - 1) * pageSize, limit: pageSize });
   };
 
   const pagination: PaginationProps = {
@@ -98,5 +98,5 @@ export const useTable = ({ service, initParams = {} }: UseMyTable) => {
       ...state.searchParams
     });
   };
-  return { ...state, pagination, onSearch, refresh };
+  return { ...state, pagination, onSearch, refresh, total: state.pagination.total };
 };

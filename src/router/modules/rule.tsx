@@ -14,6 +14,14 @@ export const ruleRoutes: RouteObject[] = [
       {
         path: '/rule/detection-protocol',
         element: LazyLoad(lazy(() => import('@/views/rule/detection-protocol')))
+      },
+      {
+        path: '/rule/web-attack',
+        element: LazyLoad(lazy(() => import('@/views/rule/web-attack')))
+      },
+      {
+        path: '/rule/network-attack',
+        element: LazyLoad(lazy(() => import('@/views/rule/network-attack')))
       }
     ]
   }

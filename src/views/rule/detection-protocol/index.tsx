@@ -8,6 +8,34 @@ import {
   getDetectionProtocolList,
   updateDetectionProtocol
 } from '@/api/modules/detection-protocol';
+import { LTabs } from '@/components';
+
+const Content = ({ data, run, types }) => {
+  const ref = useRef() as React.MutableRefObject<ModalRef>;
+
+  return (
+    <>
+      {data?.map((item, index) => (
+        <Fragment key={item.title}>
+          <h1 className="text-4 mb-4">{item.title}</h1>
+          <div className="flex flex-wrap gap-4">
+            {item.protocols.map((protocol) => (
+              <ProtocolItem
+                key={protocol.id}
+                {...protocol}
+                types={types}
+                run={run}
+                onOpen={() => ref.current.showModal()}
+              />
+            ))}
+          </div>
+          {index !== data.length - 1 && <Divider />}
+        </Fragment>
+      ))}
+      <TlsModal ref={ref} />
+    </>
+  );
+};
 
 const DetectionProtocol = () => {
   const { data, refresh } = useRequest(() => getDetectionProtocolList().then((data) => data.list));
@@ -17,28 +45,21 @@ const DetectionProtocol = () => {
     debounceWait: 300,
     onSuccess: refresh
   });
-  const ref = useRef() as React.MutableRefObject<ModalRef>;
+  const items = [
+    {
+      key: '威胁检测',
+      label: '威胁检测',
+      children: <Content data={data} run={run} types={0} />
+    },
+    {
+      key: '流量日志',
+      label: '流量日志',
+      children: <Content data={data} run={run} types={1} />
+    }
+  ];
   return (
-    <div className="rounded-2 shadow bg-[var(--admin-bg-1)] p-4">
-      <div>
-        {data?.map((item, index) => (
-          <Fragment key={item.title}>
-            <h1 className="text-4 mb-4">{item.title}</h1>
-            <div className="flex flex-wrap gap-4">
-              {item.protocols.map((protocol) => (
-                <ProtocolItem
-                  key={protocol.id}
-                  {...protocol}
-                  onChange={run}
-                  onOpen={() => ref.current.showModal()}
-                />
-              ))}
-            </div>
-            {index !== data.length - 1 && <Divider />}
-          </Fragment>
-        ))}
-      </div>
-      <TlsModal ref={ref} />
+    <div className="page-wrapper pb-4">
+      <LTabs items={items} headerFixed />
     </div>
   );
 };
