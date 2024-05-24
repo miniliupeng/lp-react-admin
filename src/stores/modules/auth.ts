@@ -69,7 +69,24 @@ export const useAuthStore = create<AuthStore>()((set, get) => ({
     },
     {
       key: '/flow',
-      label: '流量管理'
+      label: '流量管理',
+      children: [
+        {
+          key: '/flow/capture',
+          label: '流量抓取',
+          icon: 'antd:AppstoreOutlined'
+        },
+        {
+          key: '/flow/outgoing-log',
+          label: '日志外发',
+          icon: 'antd:AppstoreOutlined'
+        },
+        {
+          key: '/flow/detection-tool',
+          label: '检测工具',
+          icon: 'antd:AppstoreOutlined'
+        }
+      ]
     },
     {
       key: '/settings',

@@ -71,7 +71,8 @@ export default defineConfig({
       text: 'var(--ant-text-color-primary)',
       card: 'var(--ant-bg-color-overlay)',
       background: 'var(--ant-bg-color)',
-      borderColor: 'var(--ant-border-color-lighter)'
+      borderColor: 'var(--ant-border-color-lighter)',
+      disabled: 'var(--ant-color-text-disabled)'
     }
   }
 });

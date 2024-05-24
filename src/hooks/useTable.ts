@@ -41,9 +41,9 @@ export const useTable = ({ service, initParams = {} }: UseMyTable) => {
 
       setState((state) => {
         const simpleData = 'total' in data;
-        const { list, total, ...restData } = simpleData ? data : data.data;
+        const { list, data: _data, total, ...restData } = simpleData ? data : data.data;
         state.loading = false;
-        state.dataSource = list;
+        state.dataSource = list || _data;
         state.pagination.total = total;
         state.extraData = restData;
       });

@@ -19,8 +19,18 @@ instance.interceptors.request.use((config) => {
 
 instance.interceptors.response.use(
   (response) => {
-    const res = response.data;
-    if (response.config.responseType === 'blob' && response.data instanceof Blob) return response;
+    let res = response.data;
+    if (response.data instanceof Blob) {
+      if (response.data.type !== 'application/json') {
+        return response;
+      } else {
+        return response.data.text().then((text) => {
+          res = JSON.parse(text);
+          message.error(res.reason);
+          return Promise.reject(res);
+        });
+      }
+    }
     if (!handleGeneralError(res.result, res.reason)) return Promise.reject(res);
     return res;
   },
