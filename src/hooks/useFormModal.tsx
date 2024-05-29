@@ -3,6 +3,7 @@ import { useModal } from './useModal';
 import React, { ReactNode } from 'react';
 
 interface useFormModalParams {
+  width?: number;
   title?: ReactNode;
   titleText?: string;
   content: any;
@@ -15,6 +16,7 @@ interface openModalParams extends ModalFuncProps {
   data?: any;
 }
 export const useFormModal = ({
+  width = 520,
   title,
   titleText,
   content,
@@ -36,7 +38,7 @@ export const useFormModal = ({
     form.resetFields();
   };
   const { showModal } = useModal({
-    width: 520,
+    width,
     onOk,
     // onCancel,
     afterClose,

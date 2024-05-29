@@ -1,5 +1,7 @@
 import { LTabs } from '@/components';
 import { Pacp } from './Pacp';
+import { File } from './File';
+
 const items = [
   {
     key: 'pcap检测',
@@ -9,7 +11,7 @@ const items = [
   {
     key: '文件检测',
     label: '文件检测',
-    children: 1
+    children: <File />
   }
 ];
 

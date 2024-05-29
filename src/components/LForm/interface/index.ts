@@ -25,7 +25,9 @@ export enum FormItemTypeEnum {
   Select = 'Select',
   Cascader = 'Cascader',
   TreeSelect = 'TreeSelect',
+  Radio = 'Radio',
   RadioGroup = 'RadioGroup',
+  Checkbox = 'Checkbox',
   CheckboxGroup = 'CheckboxGroup',
   TimePicker = 'TimePicker',
   DatePicker = 'DatePicker',
@@ -72,11 +74,20 @@ interface TreeSelectFormItemProps {
   fProps?: fProps;
   props?: GetProps<typeof TreeSelect>;
 }
-
+interface RadioFormItemProps {
+  type: FormItemTypeEnum.Radio;
+  fProps?: fProps;
+  props?: GetProps<typeof Radio>;
+}
 interface RadioGroupFormItemProps {
   type: FormItemTypeEnum.RadioGroup;
   fProps?: fProps;
   props?: GetProps<typeof Radio.Group>;
+}
+interface CheckboxFormItemProps {
+  type: FormItemTypeEnum.Checkbox;
+  fProps?: fProps;
+  props?: GetProps<typeof Checkbox>;
 }
 interface CheckboxGroupFormItemProps {
   type: FormItemTypeEnum.CheckboxGroup;
@@ -121,7 +132,9 @@ export type FormItemProps =
   | SelectFormItemProps
   | CascaderFormItemProps
   | TreeSelectFormItemProps
+  | RadioFormItemProps
   | RadioGroupFormItemProps
+  | CheckboxFormItemProps
   | CheckboxGroupFormItemProps
   | TimePickerFormItemProps
   | DatePickerFormItemProps
@@ -136,7 +149,9 @@ export type FDefaultProps = {
   Select: GetProps<typeof Select>;
   Cascader: GetProps<typeof Cascader>;
   TreeSelect: GetProps<typeof TreeSelect>;
+  Radio: GetProps<typeof Radio>;
   RadioGroup: GetProps<typeof Radio.Group>;
+  Checkbox: GetProps<typeof Checkbox>;
   CheckboxGroup: GetProps<typeof Checkbox.Group>;
   TimePicker: GetProps<typeof TimePicker>;
   DatePicker: GetProps<typeof DatePicker>;

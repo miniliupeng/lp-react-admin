@@ -11,5 +11,5 @@ export const Chart = forwardRef(({ className = '', option, loading }: ChartProps
   useImperativeHandle(ref, () => ({
     getChartInstance: () => chartInstance
   }));
-  return <div ref={domRef} className={`w-full h-100% ${className}`} />;
+  return <div ref={domRef} className={`w-100% h-100% ${className}`} />;
 });

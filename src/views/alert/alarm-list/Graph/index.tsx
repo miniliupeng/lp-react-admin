@@ -28,8 +28,13 @@ export const Graph = memo(({ data, loading }: GraphProps) => {
     <animated.div className="position-relative overflow-hidden" style={{ height }}>
       <div className="page-wrapper p-4 pl-0 my-4">
         <SvgIcon
-          name={open ? 'collapse' : 'open'}
-          className="position-absolute bottom-0 left-50% transform -translate-x-50% cursor-pointer hover:text-primary"
+          name="collapse"
+          size={36}
+          className="position-absolute left-50% cursor-pointer hover:text-primary"
+          style={{
+            bottom: open ? '3px' : '-6px',
+            transform: open ? 'translateX(-50%) rotate(-90deg)' : 'translateX(-50%) rotate(90deg)' // 旋转动画
+          }}
           onClick={() => {
             setOpen(!open);
             if (open) {

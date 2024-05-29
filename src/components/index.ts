@@ -18,3 +18,4 @@ export * from './UnknownText';
 export * from './Chart';
 export * from './HighlightedText';
 export * from './LTag';
+export * from './FlagIcon';

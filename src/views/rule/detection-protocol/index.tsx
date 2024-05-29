@@ -47,14 +47,14 @@ const DetectionProtocol = () => {
   });
   const items = [
     {
-      key: '威胁检测',
-      label: '威胁检测',
-      children: <Content data={data} run={run} types={0} />
-    },
-    {
       key: '流量日志',
       label: '流量日志',
       children: <Content data={data} run={run} types={1} />
+    },
+    {
+      key: '威胁检测',
+      label: '威胁检测',
+      children: <Content data={data} run={run} types={0} />
     }
   ];
   return (

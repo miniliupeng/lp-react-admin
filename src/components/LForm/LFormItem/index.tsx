@@ -22,3 +22,11 @@ export const LFormItem = (props: FormItemProps) => {
     </Form.Item>
   );
 };
+
+export const LFormItems = ({ items }: { items: FormItemProps[] }) => (
+  <>
+    {items.map((item, index) => (
+      <LFormItem key={index} {...item} />
+    ))}
+  </>
+);

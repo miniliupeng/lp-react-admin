@@ -16,20 +16,17 @@ export const SearchForm = ({ className = '', items, onSearch }: SearchFormProps)
   return (
     <LForm
       form={form}
-      layout="inline"
       items={items}
-      className={`search-form ${className}`}
+      className={`search-form flex flex-nowrap gap-4 ${className}`}
       onFinish={onSearch}
     >
-      <Form.Item className="ml-auto !mr-0">
+      <Form.Item className="ml-auto !mr-0 !flex-basis-0">
         <ButtonGroup
           options={[
             {
               type: 'primary',
-              ghost: true,
               icon: <SearchOutlined />,
-              htmlType: 'submit',
-              children: '搜索'
+              htmlType: 'submit'
             },
             {
               icon: <ReloadOutlined />,

@@ -40,7 +40,7 @@ export const useTable = ({ service, initParams = {} }: UseMyTable) => {
       const data = await service({ ...initParams, ...params });
 
       setState((state) => {
-        const simpleData = 'total' in data;
+        const simpleData = 'total' in data || 'list' in data;
         const { list, data: _data, total, ...restData } = simpleData ? data : data.data;
         state.loading = false;
         state.dataSource = list || _data;
@@ -70,8 +70,8 @@ export const useTable = ({ service, initParams = {} }: UseMyTable) => {
   };
 
   const pagination: PaginationProps = {
-    showQuickJumper: true,
-    showSizeChanger: true,
+    // showQuickJumper: true,
+    // showSizeChanger: true,
     onChange: turnPage,
     showTotal(total, range) {
       if (range[1] === range[0]) {

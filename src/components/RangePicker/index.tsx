@@ -1,4 +1,4 @@
-import { DatePicker, GetProps } from 'antd';
+import { DatePicker, DatePickerProps, GetProps } from 'antd';
 import dayjs from 'dayjs';
 
 interface LRangePickerProps
@@ -8,6 +8,14 @@ interface LRangePickerProps
   onChange?: (val: Record<string, string>) => void;
 }
 
+const disabled14DaysDate: DatePickerProps['disabledDate'] = (current, { from }) => {
+  if (from) {
+    return Math.abs(current.diff(from, 'days')) > 14;
+  }
+
+  return false;
+};
+
 export const RangePicker = ({
   field = ['tbg', 'ted'],
   value,
@@ -16,7 +24,12 @@ export const RangePicker = ({
 }: LRangePickerProps) => {
   return (
     <DatePicker.RangePicker
-      value={value ? [dayjs(value[field[0]]), dayjs(value[field[1]])] : undefined}
+      disabledDate={disabled14DaysDate}
+      value={
+        value && value[field[0]] && value[field[1]]
+          ? [dayjs(value[field[0]]), dayjs(value[field[1]])]
+          : undefined
+      }
       onChange={(_, val) => {
         onChange?.({
           [field[0]]: val?.[0],

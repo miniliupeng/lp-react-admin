@@ -1,6 +1,7 @@
 export * from './user';
 export * from './network';
 export * from './alert';
+export * from './outgoing-log';
 
 export const enableOptions = [
   { label: '启用', value: '启用' },

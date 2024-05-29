@@ -34,7 +34,7 @@ function App() {
           },
           hashed: false,
           token: {
-            colorPrimary: /* '#379e0e'  */ '#646cff',
+            colorPrimary: '#1890ff',
             fontSize: 12
           }
         }}

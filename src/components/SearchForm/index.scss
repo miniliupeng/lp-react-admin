@@ -1,17 +1,25 @@
 .search-form {
   .ant-form-item {
+    flex: 1;
+    flex-basis: 180px;
     margin-bottom: 16px;
+
+    &:has(.ant-picker-range) {
+      flex-basis: 330px;
+    }
   }
 
   .ant-picker-range {
-    width: 330px;
+    width: 100%;
+
+    // max-width: 330px;
   }
 
-  .ant-input-affix-wrapper {
-    width: 180px;
-  }
+  // .ant-input-affix-wrapper {
+  //   max-width: 180px;
+  // }
 
-  .ant-select {
-    width: 180px;
-  }
+  // .ant-select {
+  //   max-width: 180px;
+  // }
 }

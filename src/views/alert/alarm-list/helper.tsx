@@ -1,4 +1,4 @@
-import { LTag } from '@/components';
+import { FlagIcon, LTag } from '@/components';
 import { FormItemProps, FormItemTypeEnum } from '@/components/LForm/interface';
 import { attackResultOptions } from '@/config/options';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
@@ -83,9 +83,9 @@ export const getColumns = (): ColumnsType<any> => [
     title: '源IP',
     render: (record) => (
       <div className="flex-y-center gap-1">
-        <span className={`fi fi-${record.attacker_geo.country_code.toLowerCase()}`}></span>
-        <span>{record.attacker_geo.country}</span>
-        <span>{record.attacker_geo.city}</span>
+        <FlagIcon code={record.attacker_geo?.country_code} />
+        <span>{record.attacker_geo?.country}</span>
+        <span>{record.attacker_geo?.city}</span>
         <span>
           <span className="font-700">{record.src_ip}</span>:{record.src_port}
         </span>
