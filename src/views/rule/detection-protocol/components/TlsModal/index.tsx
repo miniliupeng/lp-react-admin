@@ -1,4 +1,4 @@
-import { getTlsCert, updateTlsCert } from '@/api/modules/detection-protocol';
+import { getTlsCert, updateTlsCert } from '@/api/modules/rule/detection-protocol';
 import { useForwardRefModal } from '@/hooks';
 import { useRequest } from 'ahooks';
 import { Form, Input, Modal, message } from 'antd';

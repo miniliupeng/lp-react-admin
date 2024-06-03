@@ -9,15 +9,19 @@ export const homeRoutes: RouteObject[] = [
     children: [
       {
         path: '/home',
-        element: <Navigate to="/home/network-flow" />
+        element: <Navigate to="/home/security-situation" />
       },
       {
-        path: '/home/network-flow',
-        element: LazyLoad(lazy(() => import('@/views/home/network-flow')))
+        path: '/home/security-situation',
+        element: LazyLoad(lazy(() => import('@/views/home/security-situation')))
       },
       {
-        path: '/home/session-stats',
-        element: LazyLoad(lazy(() => import('@/views/home/session-stats')))
+        path: '/home/system-flow',
+        element: LazyLoad(lazy(() => import('@/views/home/system-flow')))
+      },
+      {
+        path: '/home/data-screen',
+        element: LazyLoad(lazy(() => import('@/views/home/data-screen')))
       }
     ]
   }

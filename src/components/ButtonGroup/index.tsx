@@ -7,11 +7,12 @@ const defaultConfig: ButtonProps = {
 interface ButtonGroupProps {
   size?: ButtonProps['size'];
   options: ButtonProps[];
+  className?: string;
 }
 
-export const ButtonGroup = ({ options, size }: ButtonGroupProps) => {
+export const ButtonGroup = ({ options, size, className }: ButtonGroupProps) => {
   return (
-    <div className="flex-y-center gap-2">
+    <div className={`flex-y-center gap-2 ${className}`}>
       {options.map((option, index) => (
         <Button key={index} {...defaultConfig} size={size} {...option} />
       ))}

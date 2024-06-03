@@ -1,7 +1,7 @@
 import { ButtonGroup, LTable, SearchForm } from '@/components';
 import { getColumns, getFormItems } from './helper';
 import { useTable } from '@/hooks';
-import { exportAlert, getAlarmList } from '@/api/modules/alarm-list';
+import { exportAlert, getAlarmList } from '@/api/modules/alert/alarm-list';
 import { Detail as AlertDetail } from './Detail';
 import { DownloadOutlined } from '@ant-design/icons';
 import { useRequest } from 'ahooks';
@@ -16,11 +16,11 @@ const AlarmList = () => {
           list: res.data.alerts,
           total: res.data.total
         };
-      }),
-    initParams: {
-      start_time: '2024-05-23 15:52:00',
-      end_time: '2024-05-23 15:53:00'
-    }
+      })
+    // initParams: {
+    //   start_time: '2024-05-23 15:52:00',
+    //   end_time: '2024-05-23 15:53:00'
+    // }
   });
 
   const { run: onExportAlert } = useRequest(exportAlert, {

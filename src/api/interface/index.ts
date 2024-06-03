@@ -13,10 +13,12 @@ export interface ResultData<T = any> extends Result {
 export interface ResPageList<T> {
   list: T[];
   total: number;
+  [key: string]: any;
 }
 export interface ResPageData<T> {
   data: T[];
   total: number;
+  [key: string]: any;
 }
 
 // 分页请求参数

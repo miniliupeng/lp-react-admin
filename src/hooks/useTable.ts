@@ -24,7 +24,7 @@ export const useTable = ({ service, initParams = {} }: UseMyTable) => {
     dataSource: [],
     pagination: {
       current: 1,
-      pageSize: 10,
+      pageSize: 50,
       total: 0
     },
     loading: false,
@@ -70,8 +70,8 @@ export const useTable = ({ service, initParams = {} }: UseMyTable) => {
   };
 
   const pagination: PaginationProps = {
-    // showQuickJumper: true,
-    // showSizeChanger: true,
+    showQuickJumper: false,
+    showSizeChanger: false,
     onChange: turnPage,
     showTotal(total, range) {
       if (range[1] === range[0]) {

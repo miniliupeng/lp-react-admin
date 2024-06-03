@@ -15,7 +15,7 @@ export const getFormItems = (option?: ResRuleOptions): FormItemProps[] => [
       name: 'vuln_type'
     },
     props: {
-      placeholder: '请选择告警类型',
+      placeholder: '告警类型',
       options: option?.threat_type
     }
   },
@@ -25,7 +25,7 @@ export const getFormItems = (option?: ResRuleOptions): FormItemProps[] => [
       name: 'enable'
     },
     props: {
-      placeholder: '请选择启用状态',
+      placeholder: '启用状态',
       options: enableOptions
     }
   },
@@ -35,7 +35,7 @@ export const getFormItems = (option?: ResRuleOptions): FormItemProps[] => [
       name: 'severity'
     },
     props: {
-      placeholder: '请选择告警级别',
+      placeholder: '告警级别',
       options: option?.threat_level
     }
   },
@@ -45,7 +45,7 @@ export const getFormItems = (option?: ResRuleOptions): FormItemProps[] => [
       name: 'result'
     },
     props: {
-      placeholder: '请选择攻击结果',
+      placeholder: '攻击结果',
       options: option?.result
     }
   },
@@ -55,7 +55,7 @@ export const getFormItems = (option?: ResRuleOptions): FormItemProps[] => [
       name: 'rule'
     },
     props: {
-      placeholder: '请输入 编号 / 名称'
+      placeholder: '编号 / 名称'
     }
   }
 ];
@@ -87,6 +87,8 @@ export const getColumns = (onEnable, openModal, openDetailModal): ColumnsType<an
   },
   {
     title: '操作',
+    width: 110,
+    fixed: 'right',
     render: (record) => (
       <Space>
         <Switch

@@ -2,15 +2,7 @@ import { FlagIcon, LTag } from '@/components';
 import { FormItemProps, FormItemTypeEnum } from '@/components/LForm/interface';
 import { attackResultOptions } from '@/config/options';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
-import { TimeRangePickerProps } from 'antd';
 import { ColumnsType } from 'antd/es/table';
-import dayjs from 'dayjs';
-
-const presets: TimeRangePickerProps['presets'] = [
-  { label: '今天', value: [dayjs().startOf('day'), dayjs()] },
-  { label: '最近7天', value: [dayjs().add(-7, 'd'), dayjs()] },
-  { label: '最近14天', value: [dayjs().add(-14, 'd'), dayjs()] }
-];
 
 export const getFormItems = (): FormItemProps[] => [
   {
@@ -19,8 +11,7 @@ export const getFormItems = (): FormItemProps[] => [
       name: 'time'
     },
     props: {
-      field: ['start_time', 'end_time'],
-      presets
+      field: ['start_time', 'end_time']
     }
   },
   {

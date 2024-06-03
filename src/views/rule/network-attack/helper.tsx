@@ -5,7 +5,7 @@ import { enableOptions } from '@/config/options';
 import { BoolEnum } from '@/enums';
 import { getTimes } from '@/utils/time';
 import { ColumnsType } from 'antd/es/table';
-import { WebAttackDetail } from './Detail';
+import { NetAttackDetail } from './Detail';
 
 export const getFormItems = (option?: ResRuleOptions): FormItemProps[] => [
   {
@@ -14,7 +14,7 @@ export const getFormItems = (option?: ResRuleOptions): FormItemProps[] => [
       name: 'vuln_type'
     },
     props: {
-      placeholder: '请选择告警类型',
+      placeholder: '告警类型',
       options: option?.threat_type
     }
   },
@@ -24,7 +24,7 @@ export const getFormItems = (option?: ResRuleOptions): FormItemProps[] => [
       name: 'enable'
     },
     props: {
-      placeholder: '请选择启用状态',
+      placeholder: '启用状态',
       options: enableOptions
     }
   },
@@ -34,7 +34,7 @@ export const getFormItems = (option?: ResRuleOptions): FormItemProps[] => [
       name: 'severity'
     },
     props: {
-      placeholder: '请选择告警级别',
+      placeholder: '告警级别',
       options: option?.threat_level
     }
   },
@@ -44,7 +44,7 @@ export const getFormItems = (option?: ResRuleOptions): FormItemProps[] => [
       name: 'result'
     },
     props: {
-      placeholder: '请选择攻击结果',
+      placeholder: '攻击结果',
       options: option?.result
     }
   },
@@ -54,7 +54,7 @@ export const getFormItems = (option?: ResRuleOptions): FormItemProps[] => [
       name: 'rule'
     },
     props: {
-      placeholder: '请输入 编号 / 名称'
+      placeholder: '编号 / 名称'
     }
   }
 ];
@@ -86,7 +86,8 @@ export const getColumns = (onEnable, openModal, openDetailModal): ColumnsType<an
   },
   {
     title: '操作',
-    width: 140,
+    width: 110,
+    fixed: 'right',
     render: (record) => (
       <div className="flex-y-center gap-2">
         <Switch
@@ -126,7 +127,7 @@ export const getColumns = (onEnable, openModal, openDetailModal): ColumnsType<an
             openDetailModal({
               width: 888,
               title: record.rule_name,
-              content: <WebAttackDetail data={record} />,
+              content: <NetAttackDetail data={record} />,
               footer: null
             })
           }

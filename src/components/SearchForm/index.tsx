@@ -22,17 +22,22 @@ export const SearchForm = ({ className = '', items, onSearch }: SearchFormProps)
     >
       <Form.Item className="ml-auto !mr-0 !flex-basis-0">
         <ButtonGroup
+          className="justify-end"
           options={[
             {
               type: 'primary',
               icon: <SearchOutlined />,
               htmlType: 'submit'
             },
-            {
-              icon: <ReloadOutlined />,
-              onClick: onReset,
-              children: '重置'
-            }
+            ...(items.length > 1
+              ? [
+                  {
+                    icon: <ReloadOutlined />,
+                    onClick: onReset,
+                    children: '重置'
+                  }
+                ]
+              : [])
           ]}
         />
       </Form.Item>

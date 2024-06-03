@@ -1,4 +1,4 @@
-import { getAttackerList } from '@/api/modules/attacker-tracking';
+import { getAttackerList } from '@/api/modules/alert/attacker-tracking';
 import { LForm, LTable } from '@/components';
 import { useTable } from '@/hooks';
 import { columns, formItems } from './helper';
@@ -21,7 +21,7 @@ export const List = ({ attackerData, setAttackerData }) => {
   const { run: debounceSearch } = useDebounceFn(onSearch);
 
   return (
-    <div className="border-r border-solid border-[var(--admin-border-1)] pr-4">
+    <div className="border-r border-solid border-[var(--admin-border-1)] pr-4 overflow-auto">
       <LForm
         initialValues={{ order_by: 'lastest' }}
         items={formItems}

@@ -7,7 +7,7 @@ import { Divider } from 'antd';
 import {
   getDetectionProtocolList,
   updateDetectionProtocol
-} from '@/api/modules/detection-protocol';
+} from '@/api/modules/rule/detection-protocol';
 import { LTabs } from '@/components';
 
 const Content = ({ data, run, types }) => {

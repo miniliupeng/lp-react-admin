@@ -19,3 +19,5 @@ export * from './Chart';
 export * from './HighlightedText';
 export * from './LTag';
 export * from './FlagIcon';
+export * from './CheckboxGroup';
+export * from './CollapseWrapper';

@@ -106,7 +106,8 @@ export const getColumns = (onEnable, onEdit, onDelete, onMenuChange): ColumnsTyp
   },
   {
     title: '操作',
-    width: 120,
+    width: 110,
+    fixed: 'right',
     render: (record) => {
       return (
         <div className="flex-y-center gap-2">

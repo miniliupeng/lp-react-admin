@@ -7,6 +7,7 @@ import dayjs from 'dayjs';
 import { addUser, deleteUser, getAllUsers, resetUserPwd, updateUser } from '@/api/modules/user';
 import { getBase64Str } from '@/utils/string';
 import { TIME_FORMAT } from '@/config/constants';
+import { PlusOutlined } from '@ant-design/icons';
 
 export const UserManage = () => {
   const { data, refresh } = useRequest(getAllUsers);
@@ -44,8 +45,8 @@ export const UserManage = () => {
     <div>
       <div className="flex justify-between">
         <h1 className="text-4 mb-4">用户管理</h1>
-        <Button type="primary" onClick={() => showModal()}>
-          新增用户
+        <Button icon={<PlusOutlined />} type="primary" onClick={() => showModal()}>
+          新增
         </Button>
       </div>
       <div className="grid grid-cols-[repeat(auto-fit,_minmax(150px,_400px))] gap-4 ">

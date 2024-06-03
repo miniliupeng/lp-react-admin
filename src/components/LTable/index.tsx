@@ -4,6 +4,7 @@ import type { TableProps } from 'antd';
 
 interface LTableProps extends Omit<TableProps<any>, 'title'> {
   title?: React.ReactNode;
+  desc?: React.ReactNode;
   actions?: React.ReactNode;
   total?: number;
 }
@@ -13,6 +14,7 @@ export const LTable = ({
   expandable,
   scroll,
   title,
+  desc,
   actions,
   total,
   className,
@@ -23,13 +25,14 @@ export const LTable = ({
     <div className={className}>
       {showTitle && (
         <div className="flex-y-center justify-between mb-2">
-          <div className="flex gap-2 items-center">
+          <div className="flex gap-2 items-baseline">
             <h2 className="text-4">{title}</h2>
-            {total && (
+            {!!total && (
               <span>
                 共<span className="text-primary m-1">{total}</span>条
               </span>
             )}
+            {desc}
           </div>
           {actions}
         </div>

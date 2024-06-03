@@ -9,11 +9,14 @@ export const SystemConfig = () => {
     manual: true
   });
 
-  const onChange: UploadProps['onChange'] = (info) => {
-    if (info.file.status === 'done') {
-      message.success(`${info.file.name} 文件上传成功`);
-    } else if (info.file.status === 'error') {
-      message.error(`${info.file.name} 文件上传失败`);
+  const onChange: UploadProps['onChange'] = ({ file }) => {
+    if (file.response) {
+      const { result, reason } = file.response;
+      if (result === 1) {
+        message.success('导入配置成功');
+      } else {
+        message.error(reason);
+      }
     }
   };
 

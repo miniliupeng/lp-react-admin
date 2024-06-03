@@ -1,8 +1,9 @@
 import { ResAttacker } from '@/api/interface/attacker-tracking';
-import { Calendar, Descriptions, DescriptionsProps, Divider, Empty, Tag } from 'antd';
-import type { Dayjs } from 'dayjs';
-import dayjs from 'dayjs';
+import { /* Calendar, */ Descriptions, DescriptionsProps, Divider, Empty, Tag } from 'antd';
+// import type { Dayjs } from 'dayjs';
+// import dayjs from 'dayjs';
 import './index.scss';
+import { Calendar } from './Calendar';
 
 export const Detail = ({ data }: { data?: ResAttacker }) => {
   if (!data) return <Empty className="mt-200px" image={Empty.PRESENTED_IMAGE_SIMPLE}></Empty>;
@@ -25,18 +26,18 @@ export const Detail = ({ data }: { data?: ResAttacker }) => {
     }
   ];
 
-  const cellRender = (value: Dayjs) => {
-    const dateStr = value.format('YYYY-MM-DD');
-    const list = data.action_map[dateStr];
-    if (!list) return null;
-    return (
-      <>
-        {list[0] > 0 && <Tag>企图: {list[0]}</Tag>}
-        {list[1] > 0 && <Tag color="error">成功: {list[1]}</Tag>}
-        {list[2] > 0 && <Tag color="var(--ant-color-error)">失陷: {list[2]}</Tag>}
-      </>
-    );
-  };
+  // const cellRender = (value: Dayjs) => {
+  //   const dateStr = value.format('YYYY-MM-DD');
+  //   const list = data.action_map[dateStr];
+  //   if (!list) return null;
+  //   return (
+  //     <>
+  //       {list[0] > 0 && <Tag>企图: {list[0]}</Tag>}
+  //       {list[1] > 0 && <Tag color="error">成功: {list[1]}</Tag>}
+  //       {list[2] > 0 && <Tag color="var(--ant-color-error)">失陷: {list[2]}</Tag>}
+  //     </>
+  //   );
+  // };
 
   return (
     <div className="overflow-auto">
@@ -53,7 +54,8 @@ export const Detail = ({ data }: { data?: ResAttacker }) => {
       </div>
       <Divider />
       <h1 className="text-4 mb-4 font-700">追踪</h1>
-      <Calendar
+      <Calendar actionMap={data.action_map} />
+      {/* <Calendar
         className="l-calendar"
         cellRender={cellRender}
         headerRender={() => <h1 className="text-4 mb-4 font-700">{dayjs().format('YYYY-MM')}</h1>}
@@ -82,7 +84,7 @@ export const Detail = ({ data }: { data?: ResAttacker }) => {
           dayjs().subtract(2, 'month').startOf('month'),
           dayjs().subtract(2, 'month').endOf('month')
         ]}
-      />
+      /> */}
     </div>
   );
 };

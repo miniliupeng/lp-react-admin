@@ -2,6 +2,7 @@ import { DatePicker } from '@/components/DatePicker';
 import { Switch } from '@/components/Switch';
 import { TagGroup } from '@/components/TagGroup';
 import { RangePicker } from '@/components/RangePicker';
+import { CheckboxGroup } from '@/components/CheckboxGroup';
 
 import type {
   Cascader,
@@ -92,7 +93,7 @@ interface CheckboxFormItemProps {
 interface CheckboxGroupFormItemProps {
   type: FormItemTypeEnum.CheckboxGroup;
   fProps?: fProps;
-  props?: GetProps<typeof Checkbox.Group>;
+  props?: GetProps<typeof CheckboxGroup>;
 }
 interface TimePickerFormItemProps {
   type: FormItemTypeEnum.TimePicker;
@@ -152,7 +153,7 @@ export type FDefaultProps = {
   Radio: GetProps<typeof Radio>;
   RadioGroup: GetProps<typeof Radio.Group>;
   Checkbox: GetProps<typeof Checkbox>;
-  CheckboxGroup: GetProps<typeof Checkbox.Group>;
+  CheckboxGroup: GetProps<typeof CheckboxGroup>;
   TimePicker: GetProps<typeof TimePicker>;
   DatePicker: GetProps<typeof DatePicker>;
   RangePicker: GetProps<typeof RangePicker>;

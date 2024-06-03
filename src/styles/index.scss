@@ -31,3 +31,18 @@ a {
   border-radius: 20px;
   box-shadow: inset 0 0 0 #fff;
 }
+
+.before-line {
+  position: relative;
+  padding-left: 8px;
+
+  &::before {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 3px;
+    height: 11px;
+    content: '';
+    background-color: var(--ant-color-primary);
+  }
+}

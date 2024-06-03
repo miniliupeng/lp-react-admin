@@ -2,10 +2,12 @@
   .ant-form-item {
     flex: 1;
     flex-basis: 180px;
+    max-width: 280px;
     margin-bottom: 16px;
 
     &:has(.ant-picker-range) {
       flex-basis: 330px;
+      max-width: 430px;
     }
   }
 

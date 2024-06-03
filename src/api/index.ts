@@ -61,6 +61,9 @@ const handleNetworkError = (errStatus: number) => {
       case 405:
         errMessage = '请求方法未允许';
         break;
+      case 406:
+        errMessage = '暂无权限';
+        break;
       case 408:
         errMessage = '请求超时';
         break;

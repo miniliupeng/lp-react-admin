@@ -3,7 +3,7 @@ import { LoginForm } from './components/LoginForm';
 import { WaveBg } from './components/WaveBg';
 import './index.scss';
 const Login = () => {
-  const bgColor = mixColor('#ffffff', '#646cff', 0.2);
+  const bgColor = mixColor('#ffffff', '#1890ff', 0.2);
   return (
     <div className="flex h-screen" style={{ backgroundColor: bgColor }}>
       <WaveBg />

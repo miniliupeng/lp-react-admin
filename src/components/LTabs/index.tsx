@@ -6,7 +6,7 @@ interface LTabsProps extends TabsProps {
 }
 
 const renderTabBar: TabsProps['renderTabBar'] = (props, DefaultTabBar) => (
-  <StickyBox offsetTop={-15} style={{ zIndex: 3 }}>
+  <StickyBox offsetTop={-16} style={{ zIndex: 3 }}>
     <DefaultTabBar {...props} className="bg-white" />
   </StickyBox>
 );

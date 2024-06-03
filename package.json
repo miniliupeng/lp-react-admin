@@ -21,6 +21,7 @@
     "dayjs": "^1.11.10",
     "echarts": "^5.5.0",
     "flag-icons": "^7.2.1",
+    "js-base64": "^3.7.7",
     "mockjs": "^1.1.0",
     "nprogress": "^0.2.0",
     "rc-tween-one": "^3.0.6",

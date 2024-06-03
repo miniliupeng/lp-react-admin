@@ -1,3 +1,7 @@
+function replaceAll(input, searchValue, replaceValue) {
+  return input.replace(new RegExp(searchValue, 'g'), replaceValue);
+}
+
 export const HighlightedText = ({ text = '', keyword }) => {
   const _text = text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
   let start = 0;
@@ -37,7 +41,8 @@ export const HighlightedText = ({ text = '', keyword }) => {
   let highlightedText = _text;
   if (endIndex) {
     const _keyword = _text.slice(start, endIndex);
-    highlightedText = _text.replaceAll(_keyword, `<span style="color: red;">${_keyword}</span>`);
+    // highlightedText = _text.replaceAll(_keyword, `<span style="color: red;">${_keyword}</span>`);
+    highlightedText = replaceAll(_text, _keyword, `<span style="color: red;">${_keyword}</span>`);
   }
   return <div dangerouslySetInnerHTML={{ __html: highlightedText }} />;
 };

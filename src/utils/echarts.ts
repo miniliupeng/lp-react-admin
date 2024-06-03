@@ -4,7 +4,8 @@ import {
   BarChart,
   LineChart,
   PieChart,
-  GraphChart
+  GraphChart,
+  HeatmapChart
   // RadarChart,
   // MapChart,
   // PictorialBarChart
@@ -14,13 +15,13 @@ import {
   TitleComponent,
   TooltipComponent,
   GridComponent,
-  LegendComponent
+  LegendComponent,
   // RadarComponent,
   // ToolboxComponent,
   // DataZoomComponent,
-  // VisualMapComponent,
+  VisualMapComponent,
   // TimelineComponent,
-  // CalendarComponent,
+  CalendarComponent
   // GraphicComponent,
   // PolarComponent,
   // AriaComponent,
@@ -35,7 +36,9 @@ import type {
   // 系列类型的定义后缀都为 SeriesOption
   BarSeriesOption,
   LineSeriesOption,
-  GraphSeriesOption
+  GraphSeriesOption,
+  HeatmapSeriesOption,
+  PieSeriesOption
 } from 'echarts/charts';
 
 import type {
@@ -43,7 +46,9 @@ import type {
   TitleComponentOption,
   TooltipComponentOption,
   GridComponentOption,
-  LegendComponentOption
+  LegendComponentOption,
+  CalendarComponentOption,
+  VisualMapComponentOption
   // DatasetComponentOption
 } from 'echarts/components';
 
@@ -54,10 +59,14 @@ export type ECOption = ComposeOption<
   | BarSeriesOption
   | LineSeriesOption
   | GraphSeriesOption
+  | HeatmapSeriesOption
+  | PieSeriesOption
   | TitleComponentOption
   | TooltipComponentOption
   | LegendComponentOption
   | GridComponentOption
+  | CalendarComponentOption
+  | VisualMapComponentOption
   // | DatasetComponentOption
 >;
 
@@ -72,9 +81,9 @@ echarts.use([
   // RadarComponent,
   // ToolboxComponent,
   // DataZoomComponent,
-  // VisualMapComponent,
+  VisualMapComponent,
   // TimelineComponent,
-  // CalendarComponent,
+  CalendarComponent,
   // GraphicComponent,
   BarChart,
   LineChart,
@@ -83,6 +92,7 @@ echarts.use([
   // RadarChart,
   // PictorialBarChart,
   GraphChart,
+  HeatmapChart,
   LabelLayout,
   UniversalTransition,
   // CanvasRenderer,

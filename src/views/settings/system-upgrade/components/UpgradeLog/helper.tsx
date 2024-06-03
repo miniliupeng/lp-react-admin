@@ -49,7 +49,7 @@ export const columns: ColumnsType<any> = [
       return (
         <div
           style={{
-            width: '500px',
+            maxWidth: '500px',
             whiteSpace: 'nowrap',
             overflow: 'hidden',
             textOverflow: 'ellipsis'

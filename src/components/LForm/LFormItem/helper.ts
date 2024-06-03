@@ -3,6 +3,7 @@ import { DatePicker } from '@/components/DatePicker';
 import { Switch } from '@/components/Switch';
 import { TagGroup } from '@/components/TagGroup';
 import { RangePicker } from '@/components/RangePicker';
+import { CheckboxGroup } from '@/components/CheckboxGroup';
 
 import {
   Cascader,
@@ -25,7 +26,7 @@ export const components: Omit<Record<FormItemTypeEnum, any>, 'Render'> = {
   Radio,
   RadioGroup: Radio.Group,
   Checkbox,
-  CheckboxGroup: Checkbox.Group,
+  CheckboxGroup: CheckboxGroup,
   TimePicker,
   DatePicker,
   RangePicker: RangePicker,
@@ -35,7 +36,8 @@ export const components: Omit<Record<FormItemTypeEnum, any>, 'Render'> = {
 
 export const defaultProps: FDefaultProps = {
   Input: {
-    allowClear: true
+    allowClear: true,
+    placeholder: '请输入'
   },
   InputNumber: {
     className: 'w-full'

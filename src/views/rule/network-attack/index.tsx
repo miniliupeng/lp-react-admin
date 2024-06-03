@@ -4,13 +4,13 @@ import { LTable, SearchForm } from '@/components';
 import { useRequest } from 'ahooks';
 import {
   getRuleNetList,
-  getRuleOptions,
   updateRuleNet,
   updateRuleNetStatus
-} from '@/api/modules/rule-web-attack';
-import { WebAttackForm } from './WebAttackForm';
+} from '@/api/modules/rule/network-attack';
+import { NetAttackForm } from './NetAttackForm';
 import { getSeconds } from '@/utils/time';
 import { message } from 'antd';
+import { getRuleOptions } from '@/api/modules/rule/web-attack';
 
 const NetworkAttack = () => {
   const { loading, dataSource, pagination, onSearch, refresh } = useTable({
@@ -26,7 +26,7 @@ const NetworkAttack = () => {
   });
   const openModal = useFormModal({
     title: '配置',
-    content: <WebAttackForm option={option} />,
+    content: <NetAttackForm option={option} />,
     update: (data) => {
       return updateRuleNet({
         ...data,

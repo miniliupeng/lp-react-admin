@@ -1,6 +1,6 @@
 import { Descriptions } from 'antd';
 
-export const WebAttackDetail = ({ data }) => {
+export const NetAttackDetail = ({ data }) => {
   return (
     <>
       <Descriptions

@@ -1,4 +1,4 @@
-import { addAlertwlist, addBlackList, exportAlertPcap } from '@/api/modules/alarm-list';
+import { addAlertwlist, addBlackList, exportAlertPcap } from '@/api/modules/alert/alarm-list';
 import { ButtonGroup } from '@/components';
 import { TIME_FORMAT } from '@/config/constants';
 import { useRequest } from 'ahooks';

@@ -14,6 +14,7 @@ import { LogForm } from './LogForm';
 import { getAlertTypes, getLogTypes } from '@/api/modules/flow/outgoing-log';
 import { useRequest } from 'ahooks';
 import { useState } from 'react';
+import { PlusOutlined } from '@ant-design/icons';
 const OutgoingLog = () => {
   const { loading, dataSource, pagination, refresh } = useTable({
     service: getTransportList
@@ -59,7 +60,7 @@ const OutgoingLog = () => {
     <div className="page-wrapper pt-4">
       <LTable
         actions={
-          <Button type="primary" ghost onClick={() => openModal()}>
+          <Button type="primary" ghost onClick={() => openModal()} icon={<PlusOutlined />}>
             新增
           </Button>
         }

@@ -45,7 +45,7 @@ const LayoutHeader = () => {
     }
   ];
   return (
-    <Header className="grid grid-cols-[auto_1fr_auto] gap-4 h-56px px-0 line-height-56px shadow-header">
+    <Header className="grid grid-cols-[auto_1fr_auto] gap-4 h-56px px-0 line-height-56px shadow-header z-4">
       <Logo></Logo>
       <HorizontalMenu />
       <div className="justify-self-end px-4">

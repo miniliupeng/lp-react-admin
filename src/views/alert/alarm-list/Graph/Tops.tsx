@@ -1,6 +1,5 @@
 import { Chart } from '@/components';
 import { ECOption } from '@/utils/echarts';
-import React from 'react';
 
 const Top = ({ title, loading, data }) => {
   const _data = data?.slice(0, 10);

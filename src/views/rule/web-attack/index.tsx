@@ -7,7 +7,7 @@ import {
   getRuleWebList,
   updateRuleWeb,
   updateRuleWebStatus
-} from '@/api/modules/rule-web-attack';
+} from '@/api/modules/rule/web-attack';
 import { WebAttackForm } from './WebAttackForm';
 import { getSeconds } from '@/utils/time';
 import { message } from 'antd';

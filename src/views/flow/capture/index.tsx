@@ -11,6 +11,7 @@ import { getColumns } from './helper';
 import { Button, message } from 'antd';
 import { Form } from './Form';
 import { useRequest } from 'ahooks';
+import { PlusOutlined } from '@ant-design/icons';
 
 const Capture = () => {
   const { loading, dataSource, pagination, refresh } = useTable({
@@ -43,7 +44,7 @@ const Capture = () => {
     <div className="page-wrapper pt-4">
       <LTable
         actions={
-          <Button type="primary" ghost onClick={() => openModal()}>
+          <Button type="primary" ghost onClick={() => openModal()} icon={<PlusOutlined />}>
             新增
           </Button>
         }

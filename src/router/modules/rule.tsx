@@ -22,6 +22,22 @@ export const ruleRoutes: RouteObject[] = [
       {
         path: '/rule/network-attack',
         element: LazyLoad(lazy(() => import('@/views/rule/network-attack')))
+      },
+      {
+        path: '/rule/intelligence',
+        element: LazyLoad(lazy(() => import('@/views/rule/intelligence')))
+      },
+      {
+        path: '/rule/weak-password',
+        element: LazyLoad(lazy(() => import('@/views/rule/weak-password')))
+      },
+      {
+        path: '/rule/dos',
+        element: LazyLoad(lazy(() => import('@/views/rule/dos')))
+      },
+      {
+        path: '/rule/file',
+        element: LazyLoad(lazy(() => import('@/views/rule/file')))
       }
     ]
   }
